@@ -17,8 +17,18 @@ if(isset($_POST)){
         
         if($verify){
 		
-			$_SESSION['usuario'] = $usuario;
-			header('Location: index_.php');
+            $_SESSION['usuario'] = $usuario;
+            
+            header('Location: index_.php');
+
+            if($usuario['tipo']==1){
+                header('Location: panel_de_control.php');
+            }
+            else{
+                header('Location: index_.php');
+            }
+
+
 		}else{
             $_SESSION['error_login'] = "Login incorrecto!!";
             header('Location: registrar.php');
