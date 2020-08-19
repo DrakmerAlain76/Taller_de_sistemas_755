@@ -6,21 +6,20 @@ if(isset($_POST)){
 	
 	$email = trim($_POST['email']);
 	$password = $_POST['password'];
-	
-	$sql = "SELECT * FROM usuarios WHERE email = '$email'";
-	$login = mysqli_query($conn, $sql);
-	
-	if($login && mysqli_num_rows($login) == 1){
+
+    $sql = "SELECT * FROM usuarios WHERE email = '$email'";
+    
+    $login = mysqli_query($conn, $sql);
+    if($login && mysqli_num_rows($login) == 1){
 		$usuario = mysqli_fetch_assoc($login);
         
 		$verify = password_verify($password, $usuario['contrasena']);
         
         if($verify){
-		
-            $_SESSION['usuario'] = $usuario;
             
+            $_SESSION['usuario'] = $usuario;
             header('Location: index_.php');
-
+            
             if($usuario['tipo']==1){
                 header('Location: panel_de_control.php');
             }
