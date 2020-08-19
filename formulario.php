@@ -1,3 +1,6 @@
+<?php
+require_once 'helper/helpers.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -10,15 +13,30 @@
 
         
     <form method="post" action="validar.php"> 
+    <?php if(isset($_SESSION['completado'])): ?>
+			<div class="alerta alerta-exito">
+				<?=$_SESSION['completado']?>
+			</div>
+		<?php elseif(isset($_SESSION['errores']['general'])): ?>
+			<div class="alerta alerta-error">
+				<?=$_SESSION['errores']['general']?>
+			</div>
+		<?php endif; ?>
         <h2>Formulario de Registro</h2>
         <input type="text" placeholder="nombre" required name="nombre">
-        <?php// echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'nombre') : ''; ?><br>
+        <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'nombre') : ''; ?><br>
         <input type="text" placeholder="apellidos" required name="apellidos"><br>
-        <?php// echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'apellidos') : ''; ?>
+
+        <?php echo isset($_SESSION['errores'])? mostrarError($_SESSION['errores'], 'apellidos') : ''; ?>
+        
         <input type="email" placeholder="email" required name="email"><br>
-        <?php// echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'email') : ''; ?>
+        
+        <?php echo isset($_SESSION['errores'])? mostrarError($_SESSION['errores'], 'email') : ''; ?>
+        
         <input type="password" placeholder="Contraseña" required name="password"><br>
-        <?php// echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'password') : ''; ?>
+        
+        <?php echo isset($_SESSION['errores'])? mostrarError($_SESSION['errores'], 'password') : ''; ?>
+        
         <!-- <input type="text" placeholder="Usuario" required name="usuario"><br> -->
         <!-- <input type="password" placeholder="Confirmar Contraseña" required name="contrasena"><br> -->
         <!-- <input type="text" placeholder="Cedula" required name="Cedula"><br>
@@ -29,10 +47,11 @@
         <!-- <input type="text" placeholder="edad" required name="edad"><br> -->
         <input type="submit" name="Registrar" value="Registrar">
 
-
+        <?php borrarErrores(); ?>
 
     </form>
 
+   
     <!-- <form method="post" action="registrar.php">
         <h2>Formulario de Registro</h2>
         <input type="text" placeholder="Nombres" required name="nombre"><br>

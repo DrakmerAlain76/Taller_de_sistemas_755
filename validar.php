@@ -71,22 +71,35 @@ if(isset($_POST)){
             }
             
 	    }else{
-		$_SESSION['errores'] = $errores;
+        $_SESSION['errores'] = $errores;
+        ?>
+        <h1><strong> NO SE REGISTRO </strong></h1>
+        <a href="formulario.php">volver a registrarse</a><br>
+        <a href="index_.php">inicio</a>
+        <?php
+        //header('Location: formulario.php');
+        //var_dump($errores);
+        // die();
 	}
 
+    
+if(!$errores){
+?>
+    <h1><strong>SE REGISTRO CORREACTAMENTE</strong></h1>
+    <a href="registrar.php">iniciar seccion</a><br>
+        <a href="index_.php">inicio</a>
+<?php
+}
 
 
 }
-//header('Location: formulario.php');
+
+
+
 
 ?>
 
 
-<h1><strong>NO SE REGISTRO CORREACTAMENTE</strong></h1>
-<a href="formulario.php">volver a registrarse</a><br>
-<a href="index_.php">inicio</a>
 
 
-
-
-
+    
