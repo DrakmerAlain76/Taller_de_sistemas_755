@@ -7,7 +7,33 @@
         <title>Formulario</title>
     </head>
 <body>
-    <form method="post" action="registrar.php">
+
+        
+    <form method="post" action="validar.php"> 
+        <h2>Formulario de Registro</h2>
+        <input type="text" placeholder="nombre" required name="nombre">
+        <?php// echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'nombre') : ''; ?><br>
+        <input type="text" placeholder="apellidos" required name="apellidos"><br>
+        <?php// echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'apellidos') : ''; ?>
+        <input type="email" placeholder="email" required name="email"><br>
+        <?php// echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'email') : ''; ?>
+        <input type="password" placeholder="Contraseña" required name="password"><br>
+        <?php// echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'password') : ''; ?>
+        <!-- <input type="text" placeholder="Usuario" required name="usuario"><br> -->
+        <!-- <input type="password" placeholder="Confirmar Contraseña" required name="contrasena"><br> -->
+        <!-- <input type="text" placeholder="Cedula" required name="Cedula"><br>
+        <input type="text" placeholder="Numero de celular" required name="Nr_Cell"><br>
+        <input type="text" placeholder="edad" required name="edad"><br>
+        <input type="text" placeholder="pais" required name="pais"><br>
+        <input type="text" placeholder="ciudad" required name="ciudad"><br> -->
+        <!-- <input type="text" placeholder="edad" required name="edad"><br> -->
+        <input type="submit" name="Registrar" value="Registrar">
+
+
+
+    </form>
+
+    <!-- <form method="post" action="registrar.php">
         <h2>Formulario de Registro</h2>
         <input type="text" placeholder="Nombres" required name="nombre"><br>
         <input type="text" placeholder="Apellidos" required name="apellido"><br>
@@ -37,7 +63,7 @@
         <label for="birthday">Fecha de Nacimiento</label><br>
         <input type="date" id="F_Nac" name="F_Nac"><br><br>
         <input type="submit" name="Registrar" value="Registrar">
-    </form>
+    </form> -->
     <a href="index_.php">inicio</a>
 </body>
 </html>

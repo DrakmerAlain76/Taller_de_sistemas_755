@@ -7,7 +7,7 @@
     <title>Validar Usuario</title>
 </head>
 <body>
-    <form method="post" action="validar.php">
+    <form method="POST" action="validar.php">
         <h2>Formulario de Login</h2>
         <input type="text" placeholder="&#128272;usuario" required name="usuario"><br>
         <input type="password" placeholder="&#128272;Contraseña" required name="pw"><br>
