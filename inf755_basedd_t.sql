@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 19-08-2020 a las 13:30:13
+-- Tiempo de generación: 20-08-2020 a las 01:19:40
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.4.0
 
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `inf755_basedd_t`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `accesos`
+--
+
+DROP TABLE IF EXISTS `accesos`;
+CREATE TABLE IF NOT EXISTS `accesos` (
+  `id_a` int(11) NOT NULL AUTO_INCREMENT,
+  `nuser` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
+  `fecha_a` date NOT NULL,
+  `hora_a` time NOT NULL,
+  `tipo` int(1) NOT NULL,
+  PRIMARY KEY (`id_a`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `accesos`
+--
+
+INSERT INTO `accesos` (`id_a`, `nuser`, `fecha_a`, `hora_a`, `tipo`) VALUES
+(1, 'jose', '2020-08-19', '21:05:57', 2),
+(2, '', '2020-08-19', '21:07:59', 2),
+(3, 'marcelo@arias.com', '2020-08-19', '21:12:49', 2);
 
 -- --------------------------------------------------------
 
@@ -62,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `tipo_pago` int(11) NOT NULL,
   `Fech_Nac` int(11) NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -83,7 +108,9 @@ INSERT INTO `usuarios` (`id_usuario`, `nombres`, `apellidos`, `usuario`, `contra
 (12, 'nuevo', 'es nuevo', '', '$2y$04$o.2CfS4.X/MdCS5S1gnuCexq5AAuxtZfwG32WXXFlaw8OcRDvADlC', 'pepe@gmail.com', 2, 0, 0, '0', 0, 0, 0),
 (13, 'yo', 'nuevo', '', '$2y$04$1EBbqsGLvZLZbCFAv17XzO4W0iYCXWN9XNNpOt1y0/v3v.7xHXI0W', 'prueba1@po.com', 2, 0, 0, '0', 0, 0, 0),
 (14, 'drak', 'ro', '', '$2y$04$ASJcj2DQ5Pz/RZApPQZQ1O77N4lp0cOIZbkRjB6Jz44oNKpBOOZge', 'rodra@gmail.com', 1, 0, 0, '0', 0, 0, 0),
-(15, 'marcelo jose', 'arias', '', '$2y$04$Bu7V3l8zJIbAA1WlGXFH6OgyYLe6mHYZokTWG6WvaKDjnkMVF.cqa', 'marcelo@arias.com', 2, 0, 0, '0', 0, 0, 0);
+(15, 'marcelo jose', 'arias', '', '$2y$04$Bu7V3l8zJIbAA1WlGXFH6OgyYLe6mHYZokTWG6WvaKDjnkMVF.cqa', 'marcelo@arias.com', 2, 0, 0, '0', 0, 0, 0),
+(16, 'drakmer', 'rodriguez', '', '$2y$04$ra10/aVt0fh0ZAgGIHyFlOxdJgyKrMIxryS.4J50ircNyT/5GtFPC', 'drak@ro.com', 2, 0, 0, '0', 0, 0, 0),
+(17, 'ana', 'pinto', '', '$2y$04$nrNUhSGhNGdDXrDtTb/V3u9ypPRDl4K0032RnVQtyiAZ.n2zvkeZa', 'ana@gmail.com', 2, 0, 0, '0', 0, 0, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

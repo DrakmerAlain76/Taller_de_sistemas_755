@@ -18,14 +18,26 @@ if(isset($_POST)){
         if($verify){
             
             $_SESSION['usuario'] = $usuario;
-            header('Location: index_.php');
+            //$nuser= $usuario['usuario'];//tiene que ir si o si usuario
+            $nuser= $usuario['email'];//email es provisional 
+            $tipo= $usuario['tipo'];
             
-            if($usuario['tipo']==1){
+            //INSERCION DE LA TABLA ACCESOS
+            $sql = "INSERT INTO accesos VALUES(
+                null, '$nuser', CURDATE(),CURRENT_TIME() , '$tipo');";
+                
+            $guardar = mysqli_query($conn, $sql);
+            //header('Location: index_.php');
+            
+            // if($usuario['tipo']==1){
+            if($tipo==1){    
                 header('Location: panel_de_control.php');
             }
             else{
                 header('Location: index_.php');
             }
+            
+
 
 
 		}else{
