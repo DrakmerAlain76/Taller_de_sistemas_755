@@ -5,9 +5,6 @@ require_once 'conexion.php';
         $t=$_SESSION['usuario'];
         $nombre=$t['nombres'];
         $apellido=$t['apellidos'];
-        // $nombre=$usuario['nombres'];
-        // $apellidos=$usuario['apellidos'];
-        // $email=$usuario['email'];
     }
 ?>
 <!DOCTYPE html>
@@ -17,29 +14,70 @@ require_once 'conexion.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
     <title>Inicio</title>
-</head>
-<body>
-
-    <nav id="navegacion" class="cabecera">
-        <h1>PAGINA DE INICIO</h1>
-        <ul>
-            <li><a href="">inicio</a></li>
-            <li><a href="">coferencias</a></li>
-            <li><a href="">mi perfil</a></li>
-            <li><a href="">acerca de nosotros</a></li>
-            <li><a href="">mas</a></li>
-            <li><a href="formulario.php">formulario</a><br></li>
-            <li><a href="registrar.php">registrar</a></li>
-        </ul>
-        <?php
-        if($t){
-        ?>
-            <p>Bienvenido<?php echo " ".$nombre." "./*;echo*/ $apellido?></p>
-        <?php
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        section{
+            display:inline-block;
+            padding: 15px;
+            width: 33%;
             
         }
-        ?>
-    </nav>
+        nav {
+            /*display:inline-block;*/
+            padding: 15px;
+        }
+        li{
+            display:inline-block;
+            
+            
+        }
+        .lista{
+            text-decoration: none;
+            color: black;
+            margin: 50px,50px !important;
+            padding: 15px !important;
+        }
+        footer{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CONFERECIAS </h1>
+        <nav id="navegacion" class="cabecera">
+            <ul>
+                <li><a class="lista" href="">inicio</a></li>
+                <li><a class="lista" href="">coferencias</a></li>
+                <li><a class="lista" href="">novedades</a></li>
+                <li><a class="lista" href="">acerca de nosotros</a></li>
+                <li><a class="lista" href="">mi perfil</a></li>
+                
+                <?php
+                    //if(!$t){
+                        if(isset($_SESSION['usuario'])){
+                            ?>
+                        
+                        <li>Bienvenid@<?php echo " ".$nombre." ".$apellido?></li>
+                        <li><a class="lista" href="cerrar_session.php">cerrar seccion</a></li>
+                <?php
+                    }
+                else{
+                ?>
+                    <li><a class="lista" href="formulario.php">formulario</a><br></li>
+                    <li><a class="lista" href="registrar.php">iniciar seccion</a></li>
+                <?php }?>
+                
+                
+            
+                
+            </ul>
+        </nav>
+    </header>
     <br>
     <hr>
     <div id="contenido">
@@ -48,18 +86,18 @@ require_once 'conexion.php';
         <h1>Titulo</h1>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?</p>
     </section>
-    <hr>
+    <!-- <hr> -->
     <section>
         <h1>Titulo</h1>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?</p>
     </section>
-    <hr>
+    <!-- <hr> -->
     <section>
         <h1>Titulo</h1>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?</p>
     </section>
     </div>
-    <hr>
+    <hr class="limpiador">
     <article id="barra_lateral">
         <h4>mas...</h4>
         <p>
@@ -67,8 +105,8 @@ require_once 'conexion.php';
         </p>
     
     </article>
-    <hr>
     <footer id="pie_pagina">
+        <hr>
         <label for="">pie de pagina</label>
     </footer>
 </body>

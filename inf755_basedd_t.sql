@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 20-08-2020 a las 01:19:40
+-- Tiempo de generación: 20-08-2020 a las 23:49:46
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.4.0
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `accesos` (
   `hora_a` time NOT NULL,
   `tipo` int(1) NOT NULL,
   PRIMARY KEY (`id_a`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `accesos`
@@ -45,7 +45,12 @@ CREATE TABLE IF NOT EXISTS `accesos` (
 INSERT INTO `accesos` (`id_a`, `nuser`, `fecha_a`, `hora_a`, `tipo`) VALUES
 (1, 'jose', '2020-08-19', '21:05:57', 2),
 (2, '', '2020-08-19', '21:07:59', 2),
-(3, 'marcelo@arias.com', '2020-08-19', '21:12:49', 2);
+(3, 'marcelo@arias.com', '2020-08-19', '21:12:49', 2),
+(4, 'drak@ro.com', '2020-08-20', '19:31:37', 2),
+(5, 'drak@ro.com', '2020-08-20', '19:33:45', 2),
+(6, 'drak@ro.com', '2020-08-20', '19:34:05', 2),
+(7, 'drak@ro.com', '2020-08-20', '19:35:16', 2),
+(8, 'drak@ro.com', '2020-08-20', '19:36:29', 2);
 
 -- --------------------------------------------------------
 
@@ -80,37 +85,38 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `contrasena` varchar(250) COLLATE utf8_spanish_ci NOT NULL,
   `email` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
   `tipo` int(1) NOT NULL,
-  `numero_cell` int(11) NOT NULL,
-  `cargo` int(11) NOT NULL,
+  `cedula` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `pais` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `numero_cell` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
   `genero` varchar(9) COLLATE utf8_spanish_ci NOT NULL,
-  `plan` int(11) NOT NULL,
   `tipo_pago` int(11) NOT NULL,
   `Fech_Nac` int(11) NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombres`, `apellidos`, `usuario`, `contrasena`, `email`, `tipo`, `numero_cell`, `cargo`, `genero`, `plan`, `tipo_pago`, `Fech_Nac`) VALUES
-(1, 'jose', 'perez', '', '1234', 'jose@perez', 2, 0, 0, '0', 0, 0, 0),
-(2, 'jose', 'perez', '', '$2y$04$3Ch1QZkQDvzEbL.5o2FuDOekiBaVq8N.GCwwLYHl4bxp7L/v6RsDy', 'pedro@flores.com', 2, 0, 0, '0', 0, 0, 0),
-(3, 'pepe', 'gonzalez', '', '$2y$04$EcoD6.8lyYuBbLSH8r.2WeXcMUA6ENAibmfmgsP4Wkng6nvDmgE8K', 'pepe@gmail.com', 2, 0, 0, '0', 0, 0, 0),
-(4, 'jose', 'sef', '', '$2y$04$3Q6mnP2ILPTb0FlH3.2.YeS2692z3aNXV7GVEcLRzxgqCdIuc4RRe', 'pedro@flores.com', 2, 0, 0, '0', 0, 0, 0),
-(5, 'pedro', 'perez', '', '$2y$04$BN1mlGxKwwgAGKAdJH.HIOYun2iXMRcyB0/ZSZw2S6Daq43zSs4Ie', 'esf@g.com', 2, 0, 0, '0', 0, 0, 0),
-(6, 'jose', 'perez', '', '$2y$04$.bwOpuOkOFudAQStY8g3leKPwjDkkQotRQPV7K/K7Ds6cePkMD9Zm', 'jose@perez.com', 2, 0, 0, '0', 0, 0, 0),
-(7, 'jose', 'perez', '', '$2y$04$4llD5iQnEkGxriTjVZjF5eHNFL6pVkutkkK6hnAFCU81cVgHK8yzi', 'jose@perez.com', 2, 0, 0, '0', 0, 0, 0),
-(8, 'pedro', 'flores', '', '$2y$04$LNAJ4O1rgMU17dmuWDWugunf5vU8rbAlKAvzjJ95YeA4PsPSPIE7e', 'pedro@flores.con', 2, 0, 0, '0', 0, 0, 0),
-(9, 'jose', 'gonzalez', '', '$2y$04$u3cuKbuvFXNy514BvNNS/O7.REb/gwkj8hNY8xMV3mCOoe1pv6T5S', 'pedro@flores.com', 2, 0, 0, '0', 0, 0, 0),
-(10, 'tito', 'juares', '', '$2y$04$WM9pA5uL0kpaGlwBlwpYNewPJgV/n3w73/lzZTi4iFBot/jjinnuu', 'ro@ro.com', 2, 0, 0, '0', 0, 0, 0),
-(11, 'dd', 'gonzalez', '', '$2y$04$m5k89RakqCn.RzUkV0vIEeWCki9SJkGnY41OpjlXrRfkrBz8on1CK', 'pedro@flores.com', 2, 0, 0, '0', 0, 0, 0),
-(12, 'nuevo', 'es nuevo', '', '$2y$04$o.2CfS4.X/MdCS5S1gnuCexq5AAuxtZfwG32WXXFlaw8OcRDvADlC', 'pepe@gmail.com', 2, 0, 0, '0', 0, 0, 0),
-(13, 'yo', 'nuevo', '', '$2y$04$1EBbqsGLvZLZbCFAv17XzO4W0iYCXWN9XNNpOt1y0/v3v.7xHXI0W', 'prueba1@po.com', 2, 0, 0, '0', 0, 0, 0),
-(14, 'drak', 'ro', '', '$2y$04$ASJcj2DQ5Pz/RZApPQZQ1O77N4lp0cOIZbkRjB6Jz44oNKpBOOZge', 'rodra@gmail.com', 1, 0, 0, '0', 0, 0, 0),
-(15, 'marcelo jose', 'arias', '', '$2y$04$Bu7V3l8zJIbAA1WlGXFH6OgyYLe6mHYZokTWG6WvaKDjnkMVF.cqa', 'marcelo@arias.com', 2, 0, 0, '0', 0, 0, 0),
-(16, 'drakmer', 'rodriguez', '', '$2y$04$ra10/aVt0fh0ZAgGIHyFlOxdJgyKrMIxryS.4J50ircNyT/5GtFPC', 'drak@ro.com', 2, 0, 0, '0', 0, 0, 0),
-(17, 'ana', 'pinto', '', '$2y$04$nrNUhSGhNGdDXrDtTb/V3u9ypPRDl4K0032RnVQtyiAZ.n2zvkeZa', 'ana@gmail.com', 2, 0, 0, '0', 0, 0, 0);
+INSERT INTO `usuarios` (`id_usuario`, `nombres`, `apellidos`, `usuario`, `contrasena`, `email`, `tipo`, `cedula`, `pais`, `numero_cell`, `genero`, `tipo_pago`, `Fech_Nac`) VALUES
+(1, 'jose', 'perez', '', '1234', 'jose@perez', 2, '0', '0', '0', '0', 0, 0),
+(2, 'jose', 'perez', '', '$2y$04$3Ch1QZkQDvzEbL.5o2FuDOekiBaVq8N.GCwwLYHl4bxp7L/v6RsDy', 'pedro@flores.com', 2, '0', '0', '0', '0', 0, 0),
+(3, 'pepe', 'gonzalez', '', '$2y$04$EcoD6.8lyYuBbLSH8r.2WeXcMUA6ENAibmfmgsP4Wkng6nvDmgE8K', 'pepe@gmail.com', 2, '0', '0', '0', '0', 0, 0),
+(4, 'jose', 'sef', '', '$2y$04$3Q6mnP2ILPTb0FlH3.2.YeS2692z3aNXV7GVEcLRzxgqCdIuc4RRe', 'pedro@flores.com', 2, '0', '0', '0', '0', 0, 0),
+(5, 'pedro', 'perez', '', '$2y$04$BN1mlGxKwwgAGKAdJH.HIOYun2iXMRcyB0/ZSZw2S6Daq43zSs4Ie', 'esf@g.com', 2, '0', '0', '0', '0', 0, 0),
+(6, 'jose', 'perez', '', '$2y$04$.bwOpuOkOFudAQStY8g3leKPwjDkkQotRQPV7K/K7Ds6cePkMD9Zm', 'jose@perez.com', 2, '0', '0', '0', '0', 0, 0),
+(7, 'jose', 'perez', '', '$2y$04$4llD5iQnEkGxriTjVZjF5eHNFL6pVkutkkK6hnAFCU81cVgHK8yzi', 'jose@perez.com', 2, '0', '0', '0', '0', 0, 0),
+(8, 'pedro', 'flores', '', '$2y$04$LNAJ4O1rgMU17dmuWDWugunf5vU8rbAlKAvzjJ95YeA4PsPSPIE7e', 'pedro@flores.con', 2, '0', '0', '0', '0', 0, 0),
+(9, 'jose', 'gonzalez', '', '$2y$04$u3cuKbuvFXNy514BvNNS/O7.REb/gwkj8hNY8xMV3mCOoe1pv6T5S', 'pedro@flores.com', 2, '0', '0', '0', '0', 0, 0),
+(10, 'tito', 'juares', '', '$2y$04$WM9pA5uL0kpaGlwBlwpYNewPJgV/n3w73/lzZTi4iFBot/jjinnuu', 'ro@ro.com', 2, '0', '0', '0', '0', 0, 0),
+(11, 'dd', 'gonzalez', '', '$2y$04$m5k89RakqCn.RzUkV0vIEeWCki9SJkGnY41OpjlXrRfkrBz8on1CK', 'pedro@flores.com', 2, '0', '0', '0', '0', 0, 0),
+(12, 'nuevo', 'es nuevo', '', '$2y$04$o.2CfS4.X/MdCS5S1gnuCexq5AAuxtZfwG32WXXFlaw8OcRDvADlC', 'pepe@gmail.com', 2, '0', '0', '0', '0', 0, 0),
+(13, 'yo', 'nuevo', '', '$2y$04$1EBbqsGLvZLZbCFAv17XzO4W0iYCXWN9XNNpOt1y0/v3v.7xHXI0W', 'prueba1@po.com', 2, '0', '0', '0', '0', 0, 0),
+(14, 'drak', 'ro', '', '$2y$04$ASJcj2DQ5Pz/RZApPQZQ1O77N4lp0cOIZbkRjB6Jz44oNKpBOOZge', 'rodra@gmail.com', 1, '0', '0', '0', '0', 0, 0),
+(15, 'marcelo jose', 'arias', '', '$2y$04$Bu7V3l8zJIbAA1WlGXFH6OgyYLe6mHYZokTWG6WvaKDjnkMVF.cqa', 'marcelo@arias.com', 2, '0', '0', '0', '0', 0, 0),
+(16, 'drakmer', 'rodriguez', '', '$2y$04$ra10/aVt0fh0ZAgGIHyFlOxdJgyKrMIxryS.4J50ircNyT/5GtFPC', 'drak@ro.com', 2, '0', '0', '0', '0', 0, 0),
+(17, 'ana', 'pinto', '', '$2y$04$nrNUhSGhNGdDXrDtTb/V3u9ypPRDl4K0032RnVQtyiAZ.n2zvkeZa', 'ana@gmail.com', 2, '0', '0', '0', '0', 0, 0),
+(18, 'jose', 'io', 'jose12', '$2y$04$HMYvYhKKeJdIEoMxDflESegxbzpueLkeYC.QDriiDWIJzb5CLD6yu', 'jose@perez.com', 2, '15789495', 'bolivia', '1234568', '', 0, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
