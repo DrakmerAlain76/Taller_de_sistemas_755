@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 20-08-2020 a las 23:49:46
+-- Tiempo de generación: 21-08-2020 a las 01:53:49
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.4.0
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `accesos` (
   `hora_a` time NOT NULL,
   `tipo` int(1) NOT NULL,
   PRIMARY KEY (`id_a`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `accesos`
@@ -50,7 +50,12 @@ INSERT INTO `accesos` (`id_a`, `nuser`, `fecha_a`, `hora_a`, `tipo`) VALUES
 (5, 'drak@ro.com', '2020-08-20', '19:33:45', 2),
 (6, 'drak@ro.com', '2020-08-20', '19:34:05', 2),
 (7, 'drak@ro.com', '2020-08-20', '19:35:16', 2),
-(8, 'drak@ro.com', '2020-08-20', '19:36:29', 2);
+(8, 'drak@ro.com', '2020-08-20', '19:36:29', 2),
+(9, 'rodra@gmail.com', '2020-08-20', '20:00:46', 1),
+(10, 'drak@ro.com', '2020-08-20', '21:34:57', 2),
+(11, 'drak@ro.com', '2020-08-20', '21:38:23', 2),
+(12, 'drak@ro.com', '2020-08-20', '21:42:56', 2),
+(13, 'drak@ro.com', '2020-08-20', '21:52:31', 2);
 
 -- --------------------------------------------------------
 
@@ -63,12 +68,22 @@ CREATE TABLE IF NOT EXISTS `cursos` (
   `id_curso` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_curso` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
   `expositor` varchar(35) COLLATE utf8_spanish_ci NOT NULL,
+  `comentario` mediumtext COLLATE utf8_spanish_ci NOT NULL,
   `costo` int(11) NOT NULL,
   `cupos` int(11) NOT NULL,
   `fecha_curso` date NOT NULL,
   `reservas` int(11) NOT NULL,
   PRIMARY KEY (`id_curso`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `cursos`
+--
+
+INSERT INTO `cursos` (`id_curso`, `nombre_curso`, `expositor`, `comentario`, `costo`, `cupos`, `fecha_curso`, `reservas`) VALUES
+(1, 'HTML', 'fernando hernandez', 'Este es curso de introduccion de de HTML y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 150, '2020-08-24', 0),
+(2, 'CSS', 'victor robles', 'Este es curso de introduccion de de CSS y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 150, '2020-08-25', 0),
+(3, 'JAVASCRIPT', 'FAZT', 'Este es curso de introduccion de de JAVASCRIPT y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 150, 150, '2020-08-26', 0);
 
 -- --------------------------------------------------------
 

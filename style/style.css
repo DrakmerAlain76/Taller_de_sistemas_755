@@ -2,6 +2,7 @@
     margin:0;;
     padding:0px;
     font-family: sans-serif;
+    box-sizing: border-box;
 }
 
 .alerta{
@@ -24,4 +25,31 @@ center{
 }
 a{
     text-decoration: none;
+}
+
+section{
+    display:inline-block;
+    padding: 15px;
+    width: 33%;
+    
+}
+nav {
+    /*display:inline-block;*/
+    padding: 15px;
+}
+li{
+    display:inline-block;
+    
+    
+}
+.lista{
+    text-decoration: none;
+    color: black;
+    margin: 50px,50px !important;
+    padding: 15px !important;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }

@@ -6,6 +6,11 @@ require_once 'conexion.php';
         $nombre=$t['nombres'];
         $apellido=$t['apellidos'];
     }
+
+
+    $sql_cursos="SELECT id_curso,nombre_curso,expositor,comentario,costo,fecha_curso FROM cursos";
+    
+    
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -58,8 +63,7 @@ require_once 'conexion.php';
                 <li><a class="lista" href="">mi perfil</a></li>
                 
                 <?php
-                    //if(!$t){
-                        if(isset($_SESSION['usuario'])){
+                    if(isset($_SESSION['usuario'])){
                             ?>
                         
                         <li>Bienvenid@<?php echo " ".$nombre." ".$apellido?></li>
@@ -81,21 +85,46 @@ require_once 'conexion.php';
     <br>
     <hr>
     <div id="contenido">
+    
+    <div>
 
+        <?php
+        
+            $lista = mysqli_query($conn, $sql_cursos);
+            while($respuesta = mysqli_fetch_assoc($lista)){
+                echo "<section>";
+                echo "<h1>".$respuesta['nombre_curso']."</h1>";
+                echo "<labe1>"."Expositor: ".$respuesta['expositor']."</labe1><br>";
+                echo "<labe1>"."Comentario: ".$respuesta['comentario']."</labe1><br>";
+                echo "<label>"."Costo: ".$respuesta['costo']."$"."</label><br>";
+                echo "<label>"."fecha de curso: ".$respuesta['fecha_curso']."</label><br>";
+                echo "</section>";
+            }
+            
+        ?>
+    
+    
+    </div>
+    <!-- <section>
+        <h1>Titulo</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?</p>
+    </section>
     <section>
         <h1>Titulo</h1>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?</p>
     </section>
-    <!-- <hr> -->
+   
     <section>
         <h1>Titulo</h1>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?</p>
-    </section>
-    <!-- <hr> -->
-    <section>
-        <h1>Titulo</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit optio itaque ex adipisci, obcaecati provident illo quisquam exercitationem aspernatur? Eius sint minus nostrum suscipit culpa. Non aspernatur ipsa quidem?</p>
-    </section>
+    </section> -->
+
+    <?php
+        if(isset($_SESSION['usuario'])){
+    ?>
+    <a style="margin:45%"  href="reservar.php">reservar</a>
+    <?php
+    }?>
     </div>
     <hr class="limpiador">
     <article id="barra_lateral">
