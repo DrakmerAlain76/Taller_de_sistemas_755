@@ -18,29 +18,18 @@ if(isset($_POST)){
         if($verify){
             
             $_SESSION['usuario'] = $usuario;
-            //$nuser= $usuario['usuario'];//tiene que ir si o si usuario
-            $nuser= $usuario['email'];//email es provisional 
+            $nuser= $usuario['usuario'];
             $tipo= $usuario['tipo'];
-            
             //INSERCION DE LA TABLA ACCESOS
-            $sql = "INSERT INTO accesos VALUES(
-                null, '$nuser', CURDATE(),CURRENT_TIME() , '$tipo');";
-                
+            $sql = "INSERT INTO accesos VALUES(null, '$nuser', CURDATE(),CURRENT_TIME() , '$tipo');";
             $guardar = mysqli_query($conn, $sql);
-            //header('Location: index_.php');
-            
-            // if($usuario['tipo']==1){
             if($tipo==1){    
                 header('Location: panel_de_control.php');
             }
             else{
                 header('Location: index_.php');
             }
-            
-
-
-
-		}else{
+        }else{
             $_SESSION['error_login'] = "Login incorrecto!!";
             header('Location: registrar.php');
 		}
@@ -48,6 +37,5 @@ if(isset($_POST)){
         $_SESSION['error_login'] = "Login incorrecto!!";
         header('Location: registrar.php');
 	}
-	
 }
 

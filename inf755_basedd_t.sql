@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 21-08-2020 a las 01:53:49
+-- Tiempo de generación: 27-08-2020 a las 07:54:35
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.4.0
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `accesos` (
   `hora_a` time NOT NULL,
   `tipo` int(1) NOT NULL,
   PRIMARY KEY (`id_a`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `accesos`
@@ -44,7 +44,6 @@ CREATE TABLE IF NOT EXISTS `accesos` (
 
 INSERT INTO `accesos` (`id_a`, `nuser`, `fecha_a`, `hora_a`, `tipo`) VALUES
 (1, 'jose', '2020-08-19', '21:05:57', 2),
-(2, '', '2020-08-19', '21:07:59', 2),
 (3, 'marcelo@arias.com', '2020-08-19', '21:12:49', 2),
 (4, 'drak@ro.com', '2020-08-20', '19:31:37', 2),
 (5, 'drak@ro.com', '2020-08-20', '19:33:45', 2),
@@ -55,7 +54,19 @@ INSERT INTO `accesos` (`id_a`, `nuser`, `fecha_a`, `hora_a`, `tipo`) VALUES
 (10, 'drak@ro.com', '2020-08-20', '21:34:57', 2),
 (11, 'drak@ro.com', '2020-08-20', '21:38:23', 2),
 (12, 'drak@ro.com', '2020-08-20', '21:42:56', 2),
-(13, 'drak@ro.com', '2020-08-20', '21:52:31', 2);
+(13, 'drak@ro.com', '2020-08-20', '21:52:31', 2),
+(14, 'drak@ro.com', '2020-08-20', '22:25:20', 2),
+(17, 'drak@ro.com', '2020-08-20', '22:57:44', 2),
+(18, 'marcelo@arias.com', '2020-08-20', '22:58:39', 2),
+(19, 'drak@ro.com', '2020-08-20', '23:01:00', 2),
+(20, 'rodra@gmail.com', '2020-08-26', '22:33:12', 1),
+(21, 'drak@ro.com', '2020-08-26', '22:34:05', 2),
+(22, 'drak@ro.com', '2020-08-26', '22:46:25', 2),
+(23, 'marcelo_arias', '2020-08-26', '22:51:05', 2),
+(24, 'drakm', '2020-08-27', '00:14:43', 2),
+(25, 'marcelo_arias', '2020-08-27', '03:07:32', 2),
+(26, 'paloa12', '2020-08-27', '03:36:40', 2),
+(27, 'drakm', '2020-08-27', '03:43:10', 2);
 
 -- --------------------------------------------------------
 
@@ -81,9 +92,33 @@ CREATE TABLE IF NOT EXISTS `cursos` (
 --
 
 INSERT INTO `cursos` (`id_curso`, `nombre_curso`, `expositor`, `comentario`, `costo`, `cupos`, `fecha_curso`, `reservas`) VALUES
-(1, 'HTML', 'fernando hernandez', 'Este es curso de introduccion de de HTML y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 150, '2020-08-24', 0),
-(2, 'CSS', 'victor robles', 'Este es curso de introduccion de de CSS y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 150, '2020-08-25', 0),
-(3, 'JAVASCRIPT', 'FAZT', 'Este es curso de introduccion de de JAVASCRIPT y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 150, 150, '2020-08-26', 0);
+(1, 'HTML', 'fernando hernandez', 'Este es curso de introduccion de de HTML y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 150, '2020-08-24', 7),
+(2, 'CSS', 'victor robles', 'Este es curso de introduccion de de CSS y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 150, '2020-08-25', 7),
+(3, 'JAVASCRIPT', 'FAZT', 'Este es curso de introduccion de de JAVASCRIPT y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 150, '2020-08-26', 7);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reservaciones`
+--
+
+DROP TABLE IF EXISTS `reservaciones`;
+CREATE TABLE IF NOT EXISTS `reservaciones` (
+  `id_reserva` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario_res` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
+  `fecha_res` date NOT NULL,
+  `hora_res` time NOT NULL,
+  PRIMARY KEY (`id_reserva`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `reservaciones`
+--
+
+INSERT INTO `reservaciones` (`id_reserva`, `usuario_res`, `fecha_res`, `hora_res`) VALUES
+(1, 'marcelo_arias', '2020-08-26', '23:05:39'),
+(10, 'drakm', '2020-08-27', '00:14:47'),
+(11, 'paloa12', '2020-08-27', '03:36:45');
 
 -- --------------------------------------------------------
 
@@ -107,31 +142,18 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `tipo_pago` int(11) NOT NULL,
   `Fech_Nac` int(11) NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombres`, `apellidos`, `usuario`, `contrasena`, `email`, `tipo`, `cedula`, `pais`, `numero_cell`, `genero`, `tipo_pago`, `Fech_Nac`) VALUES
-(1, 'jose', 'perez', '', '1234', 'jose@perez', 2, '0', '0', '0', '0', 0, 0),
-(2, 'jose', 'perez', '', '$2y$04$3Ch1QZkQDvzEbL.5o2FuDOekiBaVq8N.GCwwLYHl4bxp7L/v6RsDy', 'pedro@flores.com', 2, '0', '0', '0', '0', 0, 0),
-(3, 'pepe', 'gonzalez', '', '$2y$04$EcoD6.8lyYuBbLSH8r.2WeXcMUA6ENAibmfmgsP4Wkng6nvDmgE8K', 'pepe@gmail.com', 2, '0', '0', '0', '0', 0, 0),
-(4, 'jose', 'sef', '', '$2y$04$3Q6mnP2ILPTb0FlH3.2.YeS2692z3aNXV7GVEcLRzxgqCdIuc4RRe', 'pedro@flores.com', 2, '0', '0', '0', '0', 0, 0),
-(5, 'pedro', 'perez', '', '$2y$04$BN1mlGxKwwgAGKAdJH.HIOYun2iXMRcyB0/ZSZw2S6Daq43zSs4Ie', 'esf@g.com', 2, '0', '0', '0', '0', 0, 0),
-(6, 'jose', 'perez', '', '$2y$04$.bwOpuOkOFudAQStY8g3leKPwjDkkQotRQPV7K/K7Ds6cePkMD9Zm', 'jose@perez.com', 2, '0', '0', '0', '0', 0, 0),
-(7, 'jose', 'perez', '', '$2y$04$4llD5iQnEkGxriTjVZjF5eHNFL6pVkutkkK6hnAFCU81cVgHK8yzi', 'jose@perez.com', 2, '0', '0', '0', '0', 0, 0),
-(8, 'pedro', 'flores', '', '$2y$04$LNAJ4O1rgMU17dmuWDWugunf5vU8rbAlKAvzjJ95YeA4PsPSPIE7e', 'pedro@flores.con', 2, '0', '0', '0', '0', 0, 0),
-(9, 'jose', 'gonzalez', '', '$2y$04$u3cuKbuvFXNy514BvNNS/O7.REb/gwkj8hNY8xMV3mCOoe1pv6T5S', 'pedro@flores.com', 2, '0', '0', '0', '0', 0, 0),
-(10, 'tito', 'juares', '', '$2y$04$WM9pA5uL0kpaGlwBlwpYNewPJgV/n3w73/lzZTi4iFBot/jjinnuu', 'ro@ro.com', 2, '0', '0', '0', '0', 0, 0),
-(11, 'dd', 'gonzalez', '', '$2y$04$m5k89RakqCn.RzUkV0vIEeWCki9SJkGnY41OpjlXrRfkrBz8on1CK', 'pedro@flores.com', 2, '0', '0', '0', '0', 0, 0),
-(12, 'nuevo', 'es nuevo', '', '$2y$04$o.2CfS4.X/MdCS5S1gnuCexq5AAuxtZfwG32WXXFlaw8OcRDvADlC', 'pepe@gmail.com', 2, '0', '0', '0', '0', 0, 0),
-(13, 'yo', 'nuevo', '', '$2y$04$1EBbqsGLvZLZbCFAv17XzO4W0iYCXWN9XNNpOt1y0/v3v.7xHXI0W', 'prueba1@po.com', 2, '0', '0', '0', '0', 0, 0),
-(14, 'drak', 'ro', '', '$2y$04$ASJcj2DQ5Pz/RZApPQZQ1O77N4lp0cOIZbkRjB6Jz44oNKpBOOZge', 'rodra@gmail.com', 1, '0', '0', '0', '0', 0, 0),
-(15, 'marcelo jose', 'arias', '', '$2y$04$Bu7V3l8zJIbAA1WlGXFH6OgyYLe6mHYZokTWG6WvaKDjnkMVF.cqa', 'marcelo@arias.com', 2, '0', '0', '0', '0', 0, 0),
-(16, 'drakmer', 'rodriguez', '', '$2y$04$ra10/aVt0fh0ZAgGIHyFlOxdJgyKrMIxryS.4J50ircNyT/5GtFPC', 'drak@ro.com', 2, '0', '0', '0', '0', 0, 0),
-(17, 'ana', 'pinto', '', '$2y$04$nrNUhSGhNGdDXrDtTb/V3u9ypPRDl4K0032RnVQtyiAZ.n2zvkeZa', 'ana@gmail.com', 2, '0', '0', '0', '0', 0, 0),
-(18, 'jose', 'io', 'jose12', '$2y$04$HMYvYhKKeJdIEoMxDflESegxbzpueLkeYC.QDriiDWIJzb5CLD6yu', 'jose@perez.com', 2, '15789495', 'bolivia', '1234568', '', 0, 0);
+(14, 'drak', 'ro', 'rodra', '$2y$04$ASJcj2DQ5Pz/RZApPQZQ1O77N4lp0cOIZbkRjB6Jz44oNKpBOOZge', 'rodra@gmail.com', 1, '0', '0', '0', '0', 0, 0),
+(15, 'marcelo jose', 'arias', 'marcelo_arias', '$2y$04$Bu7V3l8zJIbAA1WlGXFH6OgyYLe6mHYZokTWG6WvaKDjnkMVF.cqa', 'marcelo@arias.com', 2, '0', '0', '0', '0', 0, 0),
+(16, 'drakmer', 'rodriguez', 'drakm', '$2y$04$ra10/aVt0fh0ZAgGIHyFlOxdJgyKrMIxryS.4J50ircNyT/5GtFPC', 'drak@ro.com', 2, '0', '0', '0', '0', 0, 0),
+(18, 'jose', 'io', 'jose12', '$2y$04$HMYvYhKKeJdIEoMxDflESegxbzpueLkeYC.QDriiDWIJzb5CLD6yu', 'jose@perez.com', 2, '15789495', 'bolivia', '1234568', '', 0, 0),
+(19, 'paola', 'rios', 'paloa12', '$2y$04$8SI5a0y82pMyDgYSlGLx9OEOT.S9qeDnz23e1jqpbEjIamP1zcyia', 'pa@rios.com', 2, '1548226', 'bolivia', '7856126', '', 0, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

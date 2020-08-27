@@ -8,7 +8,6 @@
     <style>
         center{
             margin-top: 15%;
-        
         }
     </style>
 </head>

@@ -1,7 +1,4 @@
 <?php
-
-// echo "<h1>validar</h1>";
-
 if(isset($_POST)){
 	require_once 'conexion.php';
     if(!isset($_SESSION)){
@@ -17,19 +14,12 @@ if(isset($_POST)){
         $pais = isset($_POST['pais']) ? mysqli_real_escape_string($conn, $_POST['pais']) : false;
         $numero_cell = isset($_POST['numero_cell']) ? mysqli_real_escape_string($conn, $_POST['numero_cell']) : false;
 
-        // var_dump($usuario);
-        // var_dump($cedula);
-        // var_dump($pais);
-        // var_dump($numero_cell);
-        // die();
-
         $errores = array();
         if(!empty($nombre) && !is_numeric($nombre) && !preg_match("/[0-9]/", $nombre)){
             $nombre_validado = true;
         }else{
             $nombre_validado = false;
             $errores['nombre'] = "El nombre no es válido";
-
         }
         
         // Validar apellidos
@@ -37,19 +27,15 @@ if(isset($_POST)){
             $apellidos_validado = true;
         }else{
             $apellidos_validado = false;
-        
             $errores['apellidos'] = "Los apellidos no son válido";
         }
-        
         // Validar el email
         if(!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)){
             $email_validado = true;
-        
         }else{
             $email_validado = false;
             $errores['email'] = "El email no es válido";
         }
-        
         // Validar la contraseña
         if(!empty($password)){
             $password_validado = true;
@@ -64,7 +50,6 @@ if(isset($_POST)){
             $usuario_validado = false;
             $errores['usuario'] = "El campo usuario está vacía";
         }
-
         //Validar cedula
         if(!empty($cedula)){
             $cedula_validado = true;
@@ -72,7 +57,6 @@ if(isset($_POST)){
             $cedula_validado = false;
             $errores['cedula'] = "El campo cedula está vacía";
         }
-
         //Validar pais
         if(!empty($pais)){
             $pais_validado = true;
@@ -88,26 +72,17 @@ if(isset($_POST)){
             $numero_cell_validado = false;
             $errores['numero_cell'] = "El campo numero_cell está vacía";
         }
-
-
-        ///////////////////////////////////
         $guardar_usuario = false;
-        
-	    if(count($errores) == 0){
-           
+        if(count($errores) == 0){
             $guardar_usuario = true;
-            
             // Cifrar la contraseña
             $password_segura = password_hash($password, PASSWORD_BCRYPT, ['cost'=>4]);
-            
             // INSERTAR USUARIO EN LA TABLA USUARIOS DE LA BBDD
             //ACTUALIZAR
             $sql = "INSERT INTO usuarios VALUES(
                 null, '$nombre', '$apellidos', '$usuario', '$password_segura', '$email', 2, '$cedula', '$pais', '$numero_cell', '', 0, 0);";
                 
             $guardar = mysqli_query($conn, $sql);
-
-            
             if($guardar){
                 $_SESSION['completado'] = "El registro se ha completado con éxito";
             }else{
@@ -122,28 +97,13 @@ if(isset($_POST)){
         <a href="index_.php">inicio</a>
         <?php
         //header('Location: formulario.php');
-        //var_dump($errores);
-        // die();
-	}
-
-    
-if(!$errores){
+    }
+    if(!$errores){
 ?>
     <h1><strong>SE REGISTRO CORREACTAMENTE</strong></h1>
     <a href="registrar.php">iniciar seccion</a><br>
-        <a href="index_.php">inicio</a>
+    <a href="index_.php">inicio</a>
 <?php
+    }
 }
-
-
-}
-
-
-
-
 ?>
-
-
-
-
-    
