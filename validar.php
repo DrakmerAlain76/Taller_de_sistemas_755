@@ -101,6 +101,12 @@ if(isset($_POST)){
     if(!$errores){
 ?>
     <h1><strong>SE REGISTRO CORREACTAMENTE</strong></h1>
+    <?php
+    /// HACER EL CONTROL DE VOLVER AL MENU DE INICIO
+        // if($usuario['tipo']==1){
+        //     header("lista_usuarios.php");
+        // }
+    ?>
     <a href="registrar.php">iniciar seccion</a><br>
     <a href="index_.php">inicio</a>
 <?php
