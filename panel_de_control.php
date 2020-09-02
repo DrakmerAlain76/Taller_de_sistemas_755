@@ -11,7 +11,7 @@
         <h1>Bienvenido Administrador</h1>
         <nav id="navegacion" class="cabecera">
             <ul>
-                <li><a class="lista" href="">inicio</a></li>
+                <li><a class="lista" href="helper/control_adm.php">inicio</a></li>
                 <li><a class="lista" href="">coferencias</a></li>
                 <li><a class="lista" href="">novedades</a></li>
                 <li><a class="lista" href="lista_usuarios.php">lista de usuarios</a></li>

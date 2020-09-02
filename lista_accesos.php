@@ -1,18 +1,8 @@
 <?php 
     require_once 'conexion.php';
-    //CONTROL PARA EL INGRESO DE ADMINISTRADOR
-    // if(isset($_SESSION['usuario'])){
-    //     $t=$_SESSION['ususaio'];
-    //     $usuario=$t['usuario'];
-    //     $tipo=$t['tipo'];
-    // }
-    // if($tipo!=1)
-    // {
-    //     header('Location: index_.php');
-    // }
+    require_once 'helper/control_adm.php';
     $sql="SELECT * FROM accesos";
     $listado=$conn->query($sql);
-    //alternativa
 ?>
 <!DOCTYPE html>
 <html lang="es">

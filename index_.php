@@ -91,11 +91,18 @@ require_once 'conexion.php';
             ?>
         </div>
     <?php
-        if(isset($_SESSION['usuario'])){
+        // if(isset($_SESSION['usuario'])){
+            require_once 'helper/control_par.php';
+            
+            if ($w==1||$w==0) {
+            // header('Location: panel_de_control.php');
+            
+        }
+            elseif($w==2){
+                echo "<a style=\"margin:45%\"  href=\"reservar.php\">reservar</a>";
+            }
+    // }
     ?>
-    <a style="margin:45%"  href="reservar.php">reservar</a>
-    <?php
-    }?>
     </div>
     <hr class="limpiador">
     <article id="barra_lateral">

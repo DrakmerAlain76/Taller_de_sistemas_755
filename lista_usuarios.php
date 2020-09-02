@@ -1,15 +1,6 @@
 <?php
 require_once 'conexion.php';
-    //CONTROL PARA EL INGRESO DE ADMINISTRADOR
-    // if(isset($_SESSION['usuario'])){
-    //     $t=$_SESSION['ususaio'];
-    //     $usuario=$t['usuario'];
-    //     $tipo=$t['tipo'];
-    // }
-    // if($tipo!=1)
-    // {
-    //     header('Location: index_.php');
-    // }
+require_once 'helper/control_adm.php';
     //$sql="SELECT * FROM usuarios";
     $sql="SELECT id_usuario,nombres,apellidos,usuario,email,tipo,cedula,pais,numero_cell,genero,Fech_Nac FROM usuarios";
     $listado=$conn->query($sql);
@@ -43,6 +34,7 @@ require_once 'conexion.php';
             <input type="reset" name="Limpiar" value="Limpiar">
         </form>
         <input type="submit" name="Imprimir" value="Imprimir" onclick="location.href='controller/reportes.php'">
+        <input type="submit" name="Buscar" value="Buscar" onclick="location.href='buscar.php'">
         <table border="1">
             <thead>
                 <tr>
