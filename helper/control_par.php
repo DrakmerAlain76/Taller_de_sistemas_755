@@ -3,6 +3,8 @@
 $w=0;
 if(isset($_SESSION['usuario'])){
         $t=$_SESSION['usuario'];
+        $nombre=$t['nombres'];
+        $apellido=$t['apellidos'];
         $usuario=$t['usuario'];
         $tipo=$t['tipo'];
     if($tipo==1){

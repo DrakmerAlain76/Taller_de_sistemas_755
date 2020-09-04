@@ -1,10 +1,7 @@
 <?php
 require_once 'conexion.php';
-    if(isset($_SESSION['usuario'])){
-        $t=$_SESSION['usuario'];
-        $nombre=$t['nombres'];
-        $apellido=$t['apellidos'];
-    }
+require_once 'helper/control_par.php';
+require_once 'helper/control_par.php';
     $sql_cursos="SELECT id_curso,nombre_curso,expositor,comentario,costo,fecha_curso FROM cursos";
 ?>
 <!DOCTYPE html>
@@ -55,14 +52,17 @@ require_once 'conexion.php';
                 <li><a class="lista" href="">coferencias</a></li>
                 <li><a class="lista" href="">novedades</a></li>
                 <li><a class="lista" href="">acerca de nosotros</a></li>
-                <li><a class="lista" href="">mi perfil</a></li>
-                
-                <?php
-                    if(isset($_SESSION['usuario'])){
-                            ?>
-                        
-                        <li>Bienvenid@<?php echo " ".$nombre." ".$apellido?></li>
-                        <li><a class="lista" href="cerrar_session.php">cerrar seccion</a></li>
+                <?php if(isset($_SESSION['usuario'])){ ?>
+                    <?php if($tipo==1):  ?>
+                    <li><a class="lista" href="panel_de_control.php">panel de control</a></li>
+                    <?php endif;
+                    if($tipo==2):
+                    ?>
+                    <li><a class="lista" href="">mi perfil</a></li>
+                    <?php endif; ?>
+                    <!-- hacer el cambio de genero en esta parte -->
+                    <li>Bienvenid@<?php echo " ".$nombre." ".$apellido?></li>
+                    <li><a class="lista" href="cerrar_session.php">cerrar seccion</a></li>
                 <?php
                     }
                 else{
@@ -91,17 +91,9 @@ require_once 'conexion.php';
             ?>
         </div>
     <?php
-        // if(isset($_SESSION['usuario'])){
-            require_once 'helper/control_par.php';
-            
-            if ($w==1||$w==0) {
-            // header('Location: panel_de_control.php');
-            
+        if($w==2){
+            echo "<a style=\"margin:45%\"  href=\"reservar.php\">reservar</a>";
         }
-            elseif($w==2){
-                echo "<a style=\"margin:45%\"  href=\"reservar.php\">reservar</a>";
-            }
-    // }
     ?>
     </div>
     <hr class="limpiador">
