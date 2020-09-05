@@ -2,7 +2,7 @@
 require_once 'conexion.php';
 require_once 'helper/control_par.php';
 // require_once 'helper/control_par.php';
-    $sql_cursos="SELECT id_curso,nombre_curso,expositor,comentario,costo,fecha_curso FROM cursos";
+    
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -77,24 +77,32 @@ require_once 'helper/control_par.php';
     <hr>
     <div id="contenido">
         <div>
+        
             <?php
+                $sql_cursos="SELECT id_curso,nombre_curso,expositor,comentario,costo,fecha_curso FROM cursos";
                 $lista = mysqli_query($conn, $sql_cursos);
                 while($respuesta = mysqli_fetch_assoc($lista)){
                     echo "<section>";
-                    echo "<h1>".$respuesta['nombre_curso']."</h1>";
+                    echo "<center><h1>".$respuesta['nombre_curso']."</h1></center>";
                     echo "<labe1>"."Expositor: ".$respuesta['expositor']."</labe1><br>";
                     echo "<labe1>"."Comentario: ".$respuesta['comentario']."</labe1><br>";
                     echo "<label>"."Costo: ".$respuesta['costo']."$"."</label><br>";
                     echo "<label>"."fecha de curso: ".$respuesta['fecha_curso']."</label><br>";
-                    echo "</section>";
                     // LA RESERVA DEBE ESTAR AQUI, ESTO PARA CADA CURSO 
+                    if($w==2){
+                    ?>
+                        <a style="margin:38%" href="reservar.php? id=<?php echo $respuesta['id_curso']?>">reservar_curso</a>
+                        <a style="margin:45%"  href="reservar.php">reservar</a>
+                    <?php
+                    }
+                    echo "</section>";
                 }
             ?>
         </div>
     <?php
-        if($w==2){
-            echo "<a style=\"margin:45%\"  href=\"reservar.php\">reservar</a>";
-        }
+        // if($w==2){
+        //     echo "<a style=\"margin:45%\"  href=\"reservar.php\">reservar</a>";
+        // }
     ?>
     </div>
     <hr class="limpiador">
