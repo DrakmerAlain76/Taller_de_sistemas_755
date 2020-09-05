@@ -1,7 +1,7 @@
 <?php
 require_once 'conexion.php';
 require_once 'helper/control_par.php';
-require_once 'helper/control_par.php';
+// require_once 'helper/control_par.php';
     $sql_cursos="SELECT id_curso,nombre_curso,expositor,comentario,costo,fecha_curso FROM cursos";
 ?>
 <!DOCTYPE html>
@@ -87,6 +87,7 @@ require_once 'helper/control_par.php';
                     echo "<label>"."Costo: ".$respuesta['costo']."$"."</label><br>";
                     echo "<label>"."fecha de curso: ".$respuesta['fecha_curso']."</label><br>";
                     echo "</section>";
+                    // LA RESERVA DEBE ESTAR AQUI, ESTO PARA CADA CURSO 
                 }
             ?>
         </div>
