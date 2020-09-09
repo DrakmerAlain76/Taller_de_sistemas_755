@@ -88,5 +88,5 @@
 	<br>
 	<a href="buscar.php">Recargar</a>
 	<br>
-	<a href="lista_usuarios.php">volver</a>
+	<a href="adm/lista_usuarios.php">volver</a>
 </center>

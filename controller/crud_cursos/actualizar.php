@@ -58,9 +58,9 @@ if(isset($_POST)){
         }
         
         if(!empty($fecha_curso)){
-            $fecha_curso = true;
+            $fecha_curso_V = true;
         }else{
-            $fecha_curso = false;
+            $fecha_curso_V = false;
             $errores['fecha_curso'] = "El campo fecha curso está vacía";
         }
         
@@ -73,12 +73,16 @@ if(isset($_POST)){
         if(count($errores) == 0){
             $guardar_curso = true;
             
-            $sql2="UPDATE cursos SET nombre_curso='$nombre_curso', expositor='$expositor', comentario='$comentario', costo=$costo, cupos=$cupos,fecha_curso=0, reserva=0 WHERE id_curso=$id";
-            
+            // $sql2="UPDATE cursos SET nombre_curso='$nombre_curso', expositor='$expositor', comentario='$comentario', costo=$costo, cupos=$cupos,/*fecha_curso=0, reservas=0 */WHERE id_curso=$id";
+            $sql2="UPDATE cursos SET nombre_curso='$nombre_curso', expositor='$expositor', comentario='$comentario', costo=$costo, cupos=$cupos, fecha_curso='$fecha_curso' WHERE id_curso=$id";
+
+            // var_dump($fecha_curso);
+            // die();
             // $guardar = mysqli_query($conn, $sql2);
             $consulta = $conn->query($sql2);
             ///////////////////////////// revisar esta parte
-            
+             
+
             if($consulta==true){
                 $_SESSION['completado'] = "El registro se ha completado con éxito";
             }else{
@@ -89,11 +93,11 @@ if(isset($_POST)){
             // die();
 	    }else{
         $_SESSION['errores'] = $errores;
-        var_dump($_SESSION['errores']);
-            die();
+        // var_dump($_SESSION['errores']);
+        //     die();
         ?>
         <h1><strong> NO SE REGISTRO </strong></h1>
-        <a href="../../administrar_coferencias">volver a registrar curso</a><br>
+        <a href="../../adm/administrar_coferencias">volver a registrar curso</a><br><!--revisar si ingresa-->
         <?php
         //header('Location: formulario.php');
     }
@@ -107,7 +111,7 @@ if(isset($_POST)){
     //     header('Location: panel_de_control.php');
     // }
     ?>
-    <a href="../../administrar_coferencias"> VOLVER </a><br>
+    <a href="../../adm/administrar_coferencias"> VOLVER </a><br>
     
 <?php
     }

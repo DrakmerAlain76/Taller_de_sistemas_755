@@ -58,15 +58,15 @@ if(isset($_POST)){
         }
         
         if(!empty($fecha_curso)){
-            $fecha_curso = true;
+            $fecha_curso_V = true;
         }else{
-            $fecha_curso = false;
+            $fecha_curso_V = false;
             $errores['fecha_curso'] = "El campo fecha curso está vacía";
         }
         
         $guardar_curso = false;
 
-        // var_dump($errores,$costo,$cupos);
+        // var_dump($errores);
         //     die();
         if(count($errores) == 0){
             $guardar_curso = true;
@@ -76,8 +76,7 @@ if(isset($_POST)){
             //     null, '$nombre_curso', '$expositor', '$comentario', $costo, $cupos, $fecha_curso, 0);";
             //REVISAR EL ERROR DE LA FECHA O COMO SE INSERTA LAS FECHAS
             $sql = "INSERT INTO cursos VALUES(
-                null, '$nombre_curso', '$expositor', '$comentario', $costo, $cupos, 0, 0);";
-            
+                null, '$nombre_curso', '$expositor', '$comentario', $costo, $cupos, '$fecha_curso', 0);";
             // var_dump($costo,$cupos);
             // die();
             $guardar = mysqli_query($conn, $sql);
@@ -91,7 +90,7 @@ if(isset($_POST)){
         $_SESSION['errores'] = $errores;
         ?>
         <h1><strong> NO SE REGISTRO </strong></h1>
-        <a href="../../administrar_coferencias">volver a registrar curso</a><br>
+        <a href="../../adm/administrar_coferencias">volver a registrar curso</a><br>
         <?php
         //header('Location: formulario.php');
     }
@@ -105,7 +104,7 @@ if(isset($_POST)){
     //     header('Location: panel_de_control.php');
     // }
     ?>
-    <a href="../../administrar_coferencias">volver a registrar curso</a><br>
+    <a href="../../adm/administrar_coferencias">volver a registrar curso</a><br>
     
 <?php
     }

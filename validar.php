@@ -105,7 +105,8 @@ if(isset($_POST)){
     /// HACER EL CONTROL DE VOLVER AL MENU DE INICIO
     require_once 'helper/control_par.php';
     if ($w) {
-        header('Location: panel_de_control.php');
+        // header('Location: panel_de_control.php');
+        header('Location: adm/lista_usuarios.php');
     }
     ?>
     <a href="registrar.php">iniciar seccion</a><br>

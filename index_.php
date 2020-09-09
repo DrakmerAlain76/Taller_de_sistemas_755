@@ -91,8 +91,8 @@ require_once 'helper/control_par.php';
                     // LA RESERVA DEBE ESTAR AQUI, ESTO PARA CADA CURSO 
                     if($w==2){
                     ?>
-                        <a style="margin:38%" href="reservar.php? id=<?php echo $respuesta['id_curso']?>">reservar_curso</a>
-                        <a style="margin:45%"  href="reservar.php">reservar</a>
+                        <a style="margin:38%" href="reservar.php? id=<?php echo $respuesta['id_curso']?>">reservar </a>
+                        <!-- <a style="margin:45%"  href="reservar.php">reservar</a> -->
                     <?php
                     }
                     echo "</section>";

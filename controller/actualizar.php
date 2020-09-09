@@ -74,10 +74,10 @@ if(isset($_POST)){
             $sql1="UPDATE usuarios SET nombres='$nombre',apellidos='$apellidos',usuario='$usuario',email='$email',tipo=2,cedula='$cedula',pais='$pais',numero_cell='$numero_cell',genero='', tipo_pago=0, Fech_Nac=0 WHERE id_usuario=$id";
             $guardar = mysqli_query($conn, $sql1);
             echo "se actualizo";
-            echo "<a href=\"../lista_usuarios.php\">Regresar</a><br>";
+            echo "<a href=\"../adm/lista_usuarios.php\">Regresar</a><br>";
         }else{
             echo "error no se actualizo";
-            echo "<a href=\"../lista_usuarios.php\">Regresar</a><br>";
+            echo "<a href=\"../adm/lista_usuarios.php\">Regresar</a><br>";
         }
     
 }

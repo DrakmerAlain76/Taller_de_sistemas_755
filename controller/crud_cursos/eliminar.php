@@ -18,7 +18,7 @@ $result=$conn->query($sql);
 alert("ELIMINACIÓN EXITOSA);
 </script> -->
 <?php
-    echo "<a href=\"../../administrar_coferencias.php\">Regresar</a><br>";
+    echo "<a href=\"../../adm/administrar_coferencias.php\">Regresar</a><br>";
     
     }else{
         echo"No hay elementos";

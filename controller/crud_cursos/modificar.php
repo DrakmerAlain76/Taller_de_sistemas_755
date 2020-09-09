@@ -47,7 +47,7 @@ $result=$conn->query($sql);
             </tr>
             <tr>
                 <td>fecha curso</td>
-                <td><input type="text" name="fecha_curso" value='<?php echo $row['fecha_curso'];?>'></td>
+                <td><input type="date" name="fecha_curso" value='<?php echo $row['fecha_curso'];?>'></td>
             </tr>
         </table>
         <input type="submit" value="Modificar">

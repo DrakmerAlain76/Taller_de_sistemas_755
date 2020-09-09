@@ -13,7 +13,7 @@ echo "Se borró correctamente";
 alert("ELIMINACIÓN EXITOSA);
 </script> -->
 <?php
-    echo "<a href=\"../lista_usuarios.php\">Regresar</a><br>";
+    echo "<a href=\"../adm/lista_usuarios.php\">Regresar</a><br>";
     
     }else{
         echo"No hay elementos";
