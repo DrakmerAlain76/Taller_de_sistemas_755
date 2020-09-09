@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../style/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+</head>
+<body>
 <?php
 // require_once '../../helper/control_adm.php';
 require_once '../../conexion.php';
@@ -90,13 +99,17 @@ if(isset($_POST)){
         $_SESSION['errores'] = $errores;
         ?>
         <h1><strong> NO SE REGISTRO </strong></h1>
-        <a href="../../adm/administrar_coferencias">volver a registrar curso</a><br>
+        <a class="boton" href="../../adm/administrar_coferencias">volver a registrar curso</a><br>
         <?php
         //header('Location: formulario.php');
     }
     if(!$errores){
 ?>
-    <h1><strong>SE AGREGO UN NUEVO CUERSO CORREACTAMENTE</strong></h1>
+
+
+    
+        <center>
+    <h1><strong>SE AGREGO UN NUEVO CUERSO CORREACTAMENTE</strong></h1><br>
     <?php
     /// HACER EL CONTROL DE VOLVER AL MENU DE INICIO
     // require_once 'helper/control_par.php';
@@ -104,10 +117,12 @@ if(isset($_POST)){
     //     header('Location: panel_de_control.php');
     // }
     ?>
-    <a href="../../adm/administrar_coferencias">volver a registrar curso</a><br>
+    <a class="boton" href="../../adm/administrar_coferencias">volver a registrar curso</a><br>
     
 <?php
     }
-    echo "<a href=\"../../index_.php\">inicio</a>";
+    echo "<br><a class=\"boton\" href=\"../../index_.php\">inicio</a></center>";
 }
 ?>
+</body>
+</html>

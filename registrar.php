@@ -14,13 +14,13 @@
 <body>
     <center>
         <form method="POST" action="login.php">
-            <h2>Formulario de Login</h2>
-            <input type="text" placeholder="&#128272;email" required name="email"><br>
+            <h2>INICIAR SESION</h2><br>
+            <input type="text" placeholder="&#128187;email" required name="email"><br><br>
             <input type="password" placeholder="&#128272;Contraseña" required name="password"><br>
-            <input type="submit"name="Validar" value="Validar"><br>
-        </form>
-        <a href="formulario.php">Registrarse</a>
-        <a href="index_.php">inicio</a>
+            <input class="boton" type="submit"name="Validar" value="Validar"><br>
+        </form><br>
+        <a class="boton" href="formulario.php">Registrarse</a>
+        <a class="boton" href="index_.php">inicio</a>
     </center>
 </body>
 </html>

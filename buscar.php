@@ -1,7 +1,32 @@
 <?php
 	require_once'conexion.php';
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+        *{
+            font-family: Arial;
+        }
+        body{
+            background-color: #333333;
+            color: #f5f5f5;
+        }
+        center{
+            padding-top: 5%;
+        }
+    </style>
+</head>
+<body>
+	
+
+
 <center>
+	<h1>BUSCAR</h1>
 	<form method="POST" action="buscar.php">
 		<input type="text" name="buscar" placeholder="Buscar" required>
 		<select name="col">
@@ -10,8 +35,8 @@
 			<option value="usuario">Usuario</option>
 			<option value="tipo">Tipo</option>
 		</select>
-		<input type="Submit" name="btn" value="Buscar">
-	</form>
+		<input class="boton" type="Submit" name="btn" value="Buscar">
+	</form><br>
 	<?php
 		if(isset($_POST["btn"]))
 		{
@@ -82,11 +107,14 @@
 			}
 		?>
 		<br>
-		<input type="submit" name="imprimir" value="imprimir">
+		<input  class="boton" type="submit" name="imprimir" value="imprimir">
 		<!-- <input type="submit" name="imprimir" value="imprimir" onclick="location.href='reportes_busqueda.php'"> -->
 	</form>
 	<br>
-	<a href="buscar.php">Recargar</a>
-	<br>
-	<a href="adm/lista_usuarios.php">volver</a>
+	<a class="boton" href="buscar.php">Recargar</a>
+	<!-- <br><br> -->
+	<a class="boton" href="adm/lista_usuarios.php">volver</a>
 </center>
+</body>
+</html>
+
