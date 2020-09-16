@@ -22,6 +22,10 @@ if(isset($_POST["imprimir"])&&isset($_POST["bus2"])&&isset($_POST["col2"]))
 	$columna=$_POST["col2"]; //Opcion a Buscar
     $sql="SELECT * FROM usuarios WHERE $columna LIKE '%$busca%'";
     $result=$conn->query($sql);
+    // $result=mysqli_query($conn,$sql);
+    
+//     var_dump($result);
+// die();
 }
 else
 {
@@ -31,9 +35,11 @@ else
 }
 
     if($result){
-
-    
+        // $d=$result->num_rows;
+        
         if($result->num_rows>0){
+            
+            /*revisar no tiene datos en el array*/ 
             while ($row=mysqli_fetch_array($result)) {
                 $data[]=array(
                 'id_usuario'      =>$row[0],
@@ -49,10 +55,15 @@ else
                 'tipo_pago'       =>$row[12]
             );
         }
+
+            var_dump($data);
+die();
     }
     else{
         // echo "Base de datos vacía";
         $pdf->ezText("<b> No existe resultados ".$_POST["bus2"]."</b>\n",12);
+      
+
     }
 }
 else
@@ -69,11 +80,14 @@ $titles=array(
             'cedula'        =>'cedula',
             'pais'          =>'pais',
             'numero_cell'   =>'numero_cell',
-            'tipo_pago'     =>'tipo_pago',
+            'tipo_pago'     =>'tipo_pago'
             );
-
+//     var_dump($data);
+// die();
 $pdf->ezTable($data);
 ob_end_clean();
 $pdf->ezStream();
+// var_dump($U);
+// die();
 $conn->close();
 ?>
