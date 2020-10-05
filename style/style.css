@@ -170,29 +170,45 @@ center{
     
 }
 
+/*ENLACE DE PEDIDO*/
 
-
+.pedido{
+    display: inline;
+}
 
 .reservar{
     text-decoration: none;
-    
-    margin:42%;
+    /* background-color: #2DD0EF; */
+    background-color: #0080F7;
+    margin-top:15px;
+    margin-right: 15px;
+    padding: 7px;
+    padding-right: 2px;
+    margin-top:15px;
+    color:white;
+    border-radius: 5px;
+}
+
+.comprar{
+    text-decoration: none;
     background-color: #56B156;
     margin-top:15px;
+    margin-left: 15px;
     padding: 7px;
     margin-top:15px;
     color:white;
     border-radius: 5px;
 }
-.reservar:hover{
+
+.comprar:hover{
     background-color: #D5524D;
 }
 
 
 
-
-
-
+.reservar:hover{
+    background-color: #D5524D;
+}
 
 footer{
     position: absolute;

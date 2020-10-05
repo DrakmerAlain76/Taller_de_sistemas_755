@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 05-09-2020 a las 18:42:09
+-- Tiempo de generación: 05-10-2020 a las 05:13:16
 -- Versión del servidor: 10.4.10-MariaDB
--- Versión de PHP: 5.6.40
+-- Versión de PHP: 7.4.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `accesos` (
   `hora_a` time NOT NULL,
   `tipo` int(1) NOT NULL,
   PRIMARY KEY (`id_a`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `accesos`
@@ -94,7 +94,25 @@ INSERT INTO `accesos` (`id_a`, `nuser`, `fecha_a`, `hora_a`, `tipo`) VALUES
 (52, 'rodra', '2020-09-04', '20:59:47', 1),
 (53, 'drakm', '2020-09-05', '02:40:12', 2),
 (54, 'drakm', '2020-09-05', '14:14:23', 2),
-(55, 'rodra', '2020-09-05', '14:15:14', 1);
+(55, 'rodra', '2020-09-05', '14:15:14', 1),
+(56, 'rodra', '2020-09-08', '23:47:43', 1),
+(57, 'drakm', '2020-09-08', '23:59:01', 2),
+(58, 'drakm', '2020-09-09', '02:07:33', 2),
+(59, 'rodra', '2020-09-09', '02:09:32', 1),
+(60, 'rodra', '2020-09-09', '02:12:09', 1),
+(61, 'rodra', '2020-09-09', '06:21:08', 1),
+(62, 'drakm', '2020-09-09', '06:23:52', 2),
+(63, 'rodra', '2020-09-09', '06:58:03', 1),
+(64, 'rodra', '2020-09-09', '07:48:26', 1),
+(65, 'drakm', '2020-09-09', '07:48:40', 2),
+(66, 'rodra', '2020-09-09', '07:51:35', 1),
+(67, 'rodra', '2020-09-09', '08:17:44', 1),
+(68, 'drakm', '2020-09-09', '10:22:11', 2),
+(69, 'rodra', '2020-09-09', '10:23:03', 1),
+(70, 'rodra', '2020-09-09', '10:59:20', 1),
+(71, 'pedro123', '2020-09-29', '23:47:19', 2),
+(72, 'pedro123', '2020-10-04', '16:20:37', 2),
+(73, 'pedro123', '2020-10-04', '16:25:53', 2);
 
 -- --------------------------------------------------------
 
@@ -112,20 +130,72 @@ CREATE TABLE IF NOT EXISTS `cursos` (
   `cupos` int(11) NOT NULL,
   `fecha_curso` date NOT NULL,
   `reservas` int(11) NOT NULL,
+  `horario` int(11) NOT NULL,
   PRIMARY KEY (`id_curso`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `cursos`
 --
 
-INSERT INTO `cursos` (`id_curso`, `nombre_curso`, `expositor`, `comentario`, `costo`, `cupos`, `fecha_curso`, `reservas`) VALUES
-(1, 'HTML', 'fernando hernandez', 'Este es curso de introduccion de de HTML y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 150, '2020-08-24', 8),
-(2, 'CSS', 'victor robles', 'Este es curso de introduccion de de CSS y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 150, '2020-08-25', 9),
-(3, 'JAVASCRIPT', 'FAZT', 'Este es curso de introduccion de de JAVASCRIPT y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 150, '2020-08-26', 8),
-(10, 'Salchichas ', 'master chef Carlos', 'descripcion y ss ', 154, 86, '0000-00-00', 1),
-(11, 'cumputacion', 'jose arias', 'descripcion mucho', 150, 784, '0000-00-00', 1),
-(12, 'cumputacion desde 0', 'jose arias manrique', 'de', 500, 7, '0000-00-00', 0);
+INSERT INTO `cursos` (`id_curso`, `nombre_curso`, `expositor`, `comentario`, `costo`, `cupos`, `fecha_curso`, `reservas`, `horario`) VALUES
+(1, 'HTML', 'fernando hernandez', 'Este es curso de introduccion de de HTML y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 151, '2020-08-24', 10, 10),
+(2, 'CSS', 'victor robles', 'Este es curso de introduccion de de CSS y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 150, '2020-08-25', 10, 20),
+(3, 'JAVASCRIPT', 'FAZT', 'Este es curso de introduccion de de JAVASCRIPT y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 150, '2020-08-26', 8, 11),
+(10, 'Salchichas ', 'master chef Carlos', 'descripcion y ss ', 154, 86, '0000-00-00', 1, 9),
+(11, 'cumputacion', 'jose arias', 'descripcion mucho', 150, 784, '0000-00-00', 1, 12),
+(13, 'salteÃ±as', 'Alberto', 'descripcion de salteÃ±as', 150, 200, '2020-09-12', 1, 10),
+(14, 'Curso de C', 'Pedro Fernandez', 'descripcion del curso en C ', 200, 150, '2020-09-24', 1, 15),
+(21, 'nuevo curso', 'tito', 'descripcion ', 152, 500, '2020-09-16', 1, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `graficos`
+--
+
+DROP TABLE IF EXISTS `graficos`;
+CREATE TABLE IF NOT EXISTS `graficos` (
+  `id_grafico` int(11) NOT NULL AUTO_INCREMENT,
+  `reservas` int(11) NOT NULL,
+  `ventas` int(11) NOT NULL,
+  `reservas_pagadas` int(11) NOT NULL,
+  `cursos` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`id_grafico`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `graficos`
+--
+
+INSERT INTO `graficos` (`id_grafico`, `reservas`, `ventas`, `reservas_pagadas`, `cursos`) VALUES
+(1, 5, 15, 20, 'javasacritp');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reserva`
+--
+
+DROP TABLE IF EXISTS `reserva`;
+CREATE TABLE IF NOT EXISTS `reserva` (
+  `id_res` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario_res` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
+  `curso_res` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
+  `fecha_res` date NOT NULL,
+  `hora_res` time NOT NULL,
+  `cupos` int(11) NOT NULL,
+  `horarios` int(11) NOT NULL,
+  `descuento` int(11) NOT NULL,
+  PRIMARY KEY (`id_res`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `reserva`
+--
+
+INSERT INTO `reserva` (`id_res`, `usuario_res`, `curso_res`, `fecha_res`, `hora_res`, `cupos`, `horarios`, `descuento`) VALUES
+(13, 'pedro123', 'nuevo curso', '2020-10-05', '01:05:21', 1, 8, 0);
 
 -- --------------------------------------------------------
 
@@ -141,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `reservaciones` (
   `fecha_res` date NOT NULL,
   `hora_res` time NOT NULL,
   PRIMARY KEY (`id_reserva`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `reservaciones`
@@ -151,7 +221,12 @@ INSERT INTO `reservaciones` (`id_reserva`, `usuario_res`, `curso_reservado`, `fe
 (13, 'drakm', 'cumputacion', '2020-09-05', '03:48:31'),
 (14, 'drakm', 'Salchichas ', '2020-09-05', '03:48:40'),
 (15, 'drakm', 'CSS', '2020-09-05', '03:50:12'),
-(16, 'drakm', 'cumputacion desde 0', '2020-09-05', '03:50:54');
+(16, 'drakm', 'cumputacion desde 0', '2020-09-05', '03:50:54'),
+(17, 'drakm', 'HTML', '2020-09-08', '23:59:16'),
+(18, 'drakm', 'salteÃ±as', '2020-09-09', '02:08:10'),
+(19, 'drakm', 'Curso de C', '2020-09-09', '10:22:26'),
+(20, 'pedro123', 'CSS', '2020-10-04', '16:34:22'),
+(21, 'pedro123', '', '2020-10-04', '21:15:24');
 
 -- --------------------------------------------------------
 
@@ -175,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `tipo_pago` int(11) NOT NULL,
   `Fech_Nac` int(11) NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -188,7 +263,8 @@ INSERT INTO `usuarios` (`id_usuario`, `nombres`, `apellidos`, `usuario`, `contra
 (18, 'jose', 'io', 'jose12', '$2y$04$HMYvYhKKeJdIEoMxDflESegxbzpueLkeYC.QDriiDWIJzb5CLD6yu', 'jose@perez.com', 2, '15789495', 'bolivia', '1234568', '', 0, 0),
 (19, 'paola', 'rios', 'paloa12', '$2y$04$8SI5a0y82pMyDgYSlGLx9OEOT.S9qeDnz23e1jqpbEjIamP1zcyia', 'pa@rios.com', 2, '1548226', 'bolivia', '7856126', '', 0, 0),
 (20, 'flor', 'liz', 'flor123', '$2y$04$WWzdAyKGgIW7QnekctmE4udAoTNpSN4ged1pERXiHOIunP6loPgBW', 'flor@gmail.com', 2, '12585212', 'bolivia', '78512663', '', 0, 0),
-(22, 'lis', 'isa', 'usa', '$2y$04$9vyjGgt3NkpzUGUB8Fbrbuotz5PwrXqDD/yfUfVtPu6NIUscsXk6y', 'lis@isa.com', 2, '12345679', 'bolivia', '1234567890', '', 0, 0);
+(22, 'lis', 'isa', 'usa', '$2y$04$9vyjGgt3NkpzUGUB8Fbrbuotz5PwrXqDD/yfUfVtPu6NIUscsXk6y', 'lis@isa.com', 2, '12345679', 'bolivia', '1234567890', '', 0, 0),
+(29, 'pedro', 'martinez', 'pedro123', '$2y$04$izm4qgasASJfGK26aZtka.ykctfsDvNujI6jDjbcBLFQMzy3.3wMu', 'pe@ma.com', 2, '1568653', 'bolivia', '2348948', '', 0, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

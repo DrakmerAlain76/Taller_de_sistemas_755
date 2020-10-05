@@ -32,33 +32,9 @@ require_once 'helper/control_par.php';
 
 
     <div>
-        
-        <nav id="navegacion">
-            <ul class="ul_nav">
-                <li class="li_nav"><a class="lista" href="">inicio</a></li>
-                <li class="li_nav"><a class="lista" href="">coferencias</a></li>
-                <li class="li_nav"><a class="lista" href="">novedades</a></li>
-                <li class="li_nav"><a class="lista" href="">acerca de nosotros</a></li>
-                <?php if(isset($_SESSION['usuario'])){ ?>
-                    <?php if($tipo==1):  ?>
-                    <li class="li_nav"><a class="lista" href="panel_de_control.php">panel de control</a></li>
-                    <?php endif;
-                    if($tipo==2):
-                    ?>
-                    <li class="li_nav"><a class="lista" href="">mi perfil</a></li>
-                    <?php endif; ?>
-                    <!-- hacer el cambio de genero en esta parte -->
-                    <li class="li_nav"><a class="lista1" href="cerrar_session.php">cerrar seccion</a></li>
-                    <li class="li_nav lista1" >Bienvenid@<?php echo " ".$nombre." ".$apellido?></li>
-                <?php
-                    }
-                else{
-                ?>
-                    <li class="li_nav"><a class="lista" href="formulario.php">formulario</a><br></li>
-                    <li class="li_nav"><a class="lista" href="registrar.php">iniciar seccion</a></li>
-                <?php }?>
-            </ul>
-        </nav>
+        <?php 
+        require_once ('view/menu_navegacion.php');
+        ?>
     </div>
     <!-- <br> -->
     <hr>
@@ -68,7 +44,7 @@ require_once 'helper/control_par.php';
         <center>
         
             <?php
-                $sql_cursos="SELECT id_curso,nombre_curso,expositor,comentario,costo,fecha_curso FROM cursos";
+                $sql_cursos="SELECT id_curso,nombre_curso,expositor,comentario,costo,fecha_curso,horario FROM cursos";
                 $lista = mysqli_query($conn, $sql_cursos);
                 while($respuesta = mysqli_fetch_assoc($lista)){
                     echo "<section class=\"section_contenido\">";
@@ -76,11 +52,15 @@ require_once 'helper/control_par.php';
                     echo "<labe1 class=\"expositor\">"."Expositor: ".$respuesta['expositor']."</labe1><br>";
                     echo "<labe1 class=\"comentario\">"."Comentario: ".$respuesta['comentario']."</labe1><br>";
                     echo "<label class=\"costo\">"."Costo: ".$respuesta['costo']."$"."</label><br>";
+                    echo "<label class=\"horario\">"."horario: ".$respuesta['horario'].":00.</label><br>";
                     echo "<label class=\"fecha\">"."fecha de curso: ".$respuesta['fecha_curso']."</label><br><br>";
                     // LA RESERVA DEBE ESTAR AQUI, ESTO PARA CADA CURSO 
                     if($w==2){
                     ?>
-                        <a class="reservar" href="reservar.php? id=<?php echo $respuesta['id_curso']?>">reservar </a>
+                        <div class="pedido">
+                            <a class="reservar" href="carrito/reserva_c.php? id=<?php echo $respuesta['id_curso']?>">reservar </a>
+                            <a class="comprar" href="carrito/comprar.php? id=<?php echo $respuesta['id_curso']?>">comprar </a>
+                        </div>
                         <!-- <a style="margin:45%"  href="reservar.php">reservar</a> -->
                     <?php
                     }
