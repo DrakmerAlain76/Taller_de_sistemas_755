@@ -59,7 +59,7 @@ require_once 'helper/control_par.php';
                     ?>
                         <div class="pedido">
                             <a class="reservar" href="carrito/reserva_c.php? id=<?php echo $respuesta['id_curso']?>">reservar </a>
-                            <a class="comprar" href="carrito/comprar.php? id=<?php echo $respuesta['id_curso']?>">comprar </a>
+                            <a class="comprar" href="compra/comprar.php? id=<?php echo $respuesta['id_curso']?>">comprar </a>
                         </div>
                         <!-- <a style="margin:45%"  href="reservar.php">reservar</a> -->
                     <?php
