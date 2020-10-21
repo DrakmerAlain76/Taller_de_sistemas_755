@@ -23,9 +23,9 @@ if(isset($_SESSION['usuario'])){
     <div class="recarga">
         <center>
 
-            <form action="validar_codigo.php" method="POST">
-                <label for="codigo">Inserte Codigo</label>
-                <input type="text" id="codigo" name="codigo" placeholder="Inserte Codigo" require>
+            <form action="validar_codigo.php" method="POST"><br><br>
+                <label for="codigo">Inserte Código</label><br><br>
+                <input type="text" id="codigo" name="codigo" placeholder="Codigo" require><br>
                 <input class="boton" type="submit" name="enviar" value="enviar">
                 
             </form>
@@ -35,3 +35,4 @@ if(isset($_SESSION['usuario'])){
     
 </body>
 </html>
+

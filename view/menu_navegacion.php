@@ -4,7 +4,7 @@
 
 <nav id="navegacion">
             <ul class="ul_nav">
-                <li class="li_nav"><a class="lista" href="">inicio</a></li>
+                <li class="li_nav"><a class="lista" href="index_.php">inicio</a></li>
                 <li class="li_nav"><a class="lista" href="">coferencias</a></li>
                 <li class="li_nav"><a class="lista" href="">novedades</a></li>
                 <li class="li_nav"><a class="lista" href="">acerca de nosotros</a></li>
@@ -14,7 +14,7 @@
                     <?php endif;
                     if($tipo==2):
                     ?>
-                    <li class="li_nav"><a class="lista" href="">mi perfil</a></li>
+                    <li class="li_nav"><a class="lista" href="perfil/perfil.php">mi perfil</a></li>
                     <?php endif; ?>
                     <!-- hacer el cambio de genero en esta parte -->
                     <li class="li_nav"><a class="lista1" href="cerrar_session.php">cerrar seccion</a></li>

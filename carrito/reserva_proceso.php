@@ -58,7 +58,8 @@ require_once '../conexion.php';
             if ($numero_reserva<=$cupos) {
                 $numero_reserva++;
 
-                $reservaciones = "INSERT INTO reserva VALUES(null, '$usuario', '$curso_a_reservar',CURDATE(),CURRENT_TIME(),1,$horario_curso,0);";
+                $reservaciones = "INSERT INTO reserva VALUES(null, '$usuario', '$curso_a_reservar',CURDATE(),CURRENT_TIME(),1,$horario_curso,0,$id_c,'no');";
+                // $reservaciones = "INSERT INTO reserva VALUES(null, '$usuario', '$curso_a_reservar',CURDATE(),CURRENT_TIME(),1,$horario_curso,0);";
                 $reserva1="UPDATE `cursos` SET `reservas`=$numero_reserva WHERE id_curso=$id_c";//del curso  
                 $consulta1 = mysqli_query($conn, $reservaciones);
                 $consulta2 = mysqli_query($conn, $reserva1);

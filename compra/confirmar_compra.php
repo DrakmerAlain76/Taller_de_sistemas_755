@@ -13,6 +13,11 @@ if(isset($_GET)){
 $id_curso=$_GET;
 // var_dump($id_curso);
 // die();
+// $sql4="UPDATE usuarios SET cash=$cash_total WHERE id_usuario=$id_us";
+$sql4="SELECT cash FROM usuarios WHERE id_usuario=$id_usuario";
+$guardar3 = mysqli_query($conn, $sql4);
+$saldo_d = mysqli_fetch_assoc($guardar3);
+$sald=$saldo_d['cash'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -33,7 +38,7 @@ $id_curso=$_GET;
 
     <center>    
     <h1>Confirmar compra</h1>
-    <h3>saldo su saldo es de: <?php //$saldo?> </h3>
+    <h3>saldo su saldo es de: <?php echo $sald;?> </h3>
     <!-- <form action="transaccion.php" method="get"> -->
         <form action="transaccion.php" method="get">
         <!-- <label for=""></label>
