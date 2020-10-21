@@ -94,7 +94,7 @@ if(isset($_SESSION['usuario'])){
 
             }
             ?>
-            <a href="../index_.php">volver</a>
+            <a class="boton" href="../index_.php">volver</a>
             <section></center>
     </div>
 

@@ -72,6 +72,6 @@ require_once '../conexion.php';
             if($b){echo "<center><h1>FELICIDADES... usted reservo una plaza para su conferencia </h1></center>";}
         }
     ?>
-    <center><a  href="../index_.php">volver</a></center>
+    <center><br><a class="boton" href="../index_.php">volver</a></center>
     </body>
 </html>

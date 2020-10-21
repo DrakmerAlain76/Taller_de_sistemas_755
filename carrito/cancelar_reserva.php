@@ -61,6 +61,6 @@ require_once '../conexion.php';
         
     ?>
     <center><h1>se cancelo el curso reservado</h1></center>
-    <center><a href="../index_.php">volver</a></center>
+    <center><br><a class="boton" href="../index_.php">volver</a></center>
     </body>
 </html>

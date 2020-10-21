@@ -9,7 +9,7 @@
 <nav id="navegacion">
             <ul class="ul_nav">
                 <li class="li_nav"><a class="lista" href="index_.php">inicio</a></li>
-                <li class="li_nav"><a class="lista" href="">coferencias</a></li>
+                <li class="li_nav"><a class="lista" href="carrito/lista_con_usuario.php">coferencias</a></li>
                 <li class="li_nav"><a class="lista" href="">novedades</a></li>
                 <li class="li_nav"><a class="lista" href="">acerca de nosotros</a></li>
                 <?php if(isset($_SESSION['usuario'])){ ?>

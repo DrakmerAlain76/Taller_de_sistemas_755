@@ -191,6 +191,18 @@ center{
     color:white;
     border-radius: 5px;
 }
+.cargar{
+    text-decoration: none;
+    /* background-color: #2DD0EF; */
+    background-color: #9c00f7;
+    margin-top:15px;
+    margin-right: 15px;
+    padding: 7px;
+    padding-right: 2px;
+    margin-top:15px;
+    color:white;
+    border-radius: 5px;
+}
 
 .comprar{
     text-decoration: none;

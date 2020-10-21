@@ -76,10 +76,11 @@ $result=$conn->query($sql);
         
         <!-- <input type="submit" value="Modificar"> -->
         
-    
-    <a href="../saldo/cargar_cash">cargar saldo</a><br>
-    <a href="modificar.php ? id=<?php echo $id_usuario?>">Actualizar datos</a><br>
-    <a href="../index_.php">volver</a>
+        <br>
+        
+        <a class="boton" href="modificar.php ? id=<?php echo $id_usuario?>">Actualizar datos</a><br><br>
+        <a class="cargar" href="../saldo/cargar_cash">cargar saldo</a><br><br>
+    <a class="boton" href="../index_.php">volver</a>
     </center>
     <?php
     endwhile;

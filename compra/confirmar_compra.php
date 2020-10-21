@@ -51,9 +51,10 @@ $sald=$saldo_d['cash'];
                 <label for="conf">Confirmar si esta seguro de comprar</label><br>
                 <input class="ocultar1" type="text" name="id_us" value="<?php echo $t['id_usuario']?>">
                 <input class="ocultar1" type="text" name="id_cu" value="<?php echo $_GET['id_c']?>">
-                <input class="ocultar" id="bt" type="submit"  value="si">
-                <input class="ocultar" id="bt" type="reset"  value="no"><br>
-                <a href="../index_.php"> Volver </a>
+                <input class="boton" id="bt" type="submit"  value="si">
+                <input class="reservar" id="bt" type="reset"  value="no"><br><br>
+                <a class="cargar" href="../saldo/cargar_cash">cargar saldo</a><br><br>
+                <a class="boton" href="../index_.php"> Volver </a>
                 
             <?php /*}
             echo "<h1>No tiene saldo</h1>";*/
