@@ -21,7 +21,11 @@ if(isset($_POST["imprimir"])&&isset($_POST["bus2"])&&isset($_POST["col2"]))
 	$busca=$_POST["bus2"];//Texto a buscar
 	$columna=$_POST["col2"]; //Opcion a Buscar
     $sql="SELECT * FROM usuarios WHERE $columna LIKE '%$busca%'";
-    $result=$conn->query($sql);
+    // $result=$conn->query($sql);
+    $result = mysqli_query($conn, $sql);
+    $lista = mysqli_fetch_assoc($result);//listado
+
+    // var_dump($lista);die();
     // $result=mysqli_query($conn,$sql);
     
 //     var_dump($result);
@@ -34,10 +38,13 @@ else
     // $pdf->ezText("<b> No existe resultados ".$_POST["bus2"]."</b>\n",12);
 }
 
-    if($result){
+    // if($result){
+    // if($lista){ 
         // $d=$result->num_rows;
-        
-        if($result->num_rows>0){
+        $w=mysqli_num_rows($result);
+        var_dump($w);die();
+        if(mysqli_num_rows($result)>0){
+        // if($result->num_rows>0){
             
             /*revisar no tiene datos en el array*/ 
             while ($row=mysqli_fetch_array($result)) {
@@ -56,7 +63,7 @@ else
             );
         }
 
-            var_dump($data);
+            // var_dump($data);
 die();
     }
     else{
@@ -65,11 +72,11 @@ die();
       
 
     }
-}
-else
-{
-    $pdf->ezText("<b> No existe resultados de la busqueda</b>\n",12);
-}
+// }
+// else
+// {
+//     $pdf->ezText("<b> No existe resultados de la busqueda</b>\n",12);
+// }
 $titles=array(
             'id_usuario'    =>'id_usuario',
             'nombres'       =>'nombres',

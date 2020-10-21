@@ -44,25 +44,15 @@ h1{
                 {
                     console.log(data);
                      var name = [];
-                    var reservas = [];
+                    var reservas = [];//marks /reserva
 
                     for (var i in data) {
-                        name.push(data[i].nombre_curso);
-                        reservas.push(data[i].reservas);
+                        name.push(data[i].nombre_curso);//student_name /departamento /nombre
+                        reservas.push(data[i].reservas);//marks /reserva
                     }
 
                     var chartdata = {
                         labels: name,
-                        // series: [25, 15, 44, 55, 41, 17],
-                        // chart: {
-                        // width: '100%',
-                        //  type: 'pie',
-                        //  },
-                        // theme: {
-                        //     monochrome: {
-                        //     enabled: true
-                        //      }
-                        //  },
                         title: {
           text: "Monochrome Pie"
         },
@@ -70,8 +60,7 @@ h1{
 
                         datasets: [
                             {
-                                label: 'Cursos Reservados',
-                                // label: 'Student Marks',
+                                label: 'Cursos Reservados',//Student Marks /TITULO
                                 data: reservas,
                                 hoverBorderWidth: 5,
                                 backgroundColor: [

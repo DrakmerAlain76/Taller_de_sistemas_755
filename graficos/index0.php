@@ -8,11 +8,6 @@ BODY {
     width: 550px;
 }
 
-/* #chart-container {
-    width: 100%;
-    height: auto;
-    text-align:center;
-} */
 #chart-container {
     width: 100%;
     height: auto;
@@ -54,20 +49,18 @@ h1{
                     console.log(data);
                     
                     var name = [];
-                    var reservas = [];
-                    // var_dump name;
-                    // console.log(name);
-                    // die();
+                    var reservas = [];///marks /reservas
+                    
                     for (var i in data) {
-                        name.push(data[i].nombre_curso);
-                        reservas.push(data[i].reservas);
+                        name.push(data[i].nombre_curso);///student_name /departamento /nombre
+                        reservas.push(data[i].reservas);///marks /reservas
                     }
 
                     var chartdata = {
                         labels: name,
                         datasets: [
                             {
-                                label: 'Cursos Reservados',
+                                label: 'Cursos Reservados',///Student Marks /TTTULO
                                 backgroundColor: '#49e2ff',
                                 borderColor: '#46d5f1',
                                 hoverBackgroundColor: '#CCCCCC',

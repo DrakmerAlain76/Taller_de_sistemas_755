@@ -108,7 +108,7 @@
 			}
 		?>
 		<br>
-		<!-- <input  class="boton" type="submit" name="imprimir" value="imprimir"> -->
+		<input  class="boton" type="submit" name="imprimir" value="imprimir">
 		<!-- <input type="submit" name="imprimir" value="imprimir" onclick="location.href='reportes_busqueda.php'"> -->
 	</form>
 	<br>
