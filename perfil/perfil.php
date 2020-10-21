@@ -24,6 +24,8 @@ $result=$conn->query($sql);
     <?php require_once ('../view/menu_navegacion_us.php'); 
     
     while($row=mysqli_fetch_assoc($result)):?>
+    <br>
+    <br>
     <center>
     
         <table border="1">
@@ -59,10 +61,10 @@ $result=$conn->query($sql);
                 <td>Telefono</td>
                 <td><?php echo $row['numero_cell'];?></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>Género</td>
-                <td><?php echo $row['genero'];?></td>
-            </tr>
+                <td><?php //echo $row['genero'];?></td>
+            </tr> -->
             <tr>
                 <td>Saldo</td>
                 <td><?php echo $row['cash'];?></td>
@@ -76,7 +78,7 @@ $result=$conn->query($sql);
         
     
     <a href="../saldo/cargar_cash">cargar saldo</a><br>
-    <a href="actualizar.php">Actualizar datos</a><br>
+    <a href="modificar.php ? id=<?php echo $id_usuario?>">Actualizar datos</a><br>
     <a href="../index_.php">volver</a>
     </center>
     <?php

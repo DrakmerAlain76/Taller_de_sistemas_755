@@ -4,6 +4,7 @@ require_once '../conexion.php';
 if(isset($_SESSION['usuario'])){
     $t=$_SESSION['usuario'];
     $usuario=$t['usuario'];
+    $idusu=$t['id_usuario'];
 }
 
 /**/
@@ -37,28 +38,43 @@ if(isset($_SESSION['usuario'])){
             $lista = mysqli_query($conn, $sql_cursos);
             
             while($respuesta = mysqli_fetch_assoc($lista)){
-                echo "<section class=\"section_contenido\">";
+                echo "<br><center><section class=\"section_contenido\">";
                 echo "<center><h1 class=\"nombre_curso\">".$respuesta['nombre_curso']."</h1></center>";
                 echo "<labe1 class=\"expositor\">"."Expositor: ".$respuesta['expositor']."</labe1><br>";
                 echo "<labe1 class=\"comentario\">"."Comentario: ".$respuesta['comentario']."</labe1><br>";
                 echo "<label class=\"costo\">"."Costo: ".$respuesta['costo']."$"."</label><br>";
                 echo "<label class=\"horario\">"."horario: ".$respuesta['horario'].":00</label><br>";
                 echo "<label class=\"fecha\">"."fecha de curso: ".$respuesta['fecha_curso']."</label><br><br>";
-                
+
+                    
                     $consulta_de_reserva="SELECT * FROM reserva";
-                        $a=false;
+                        $a=0;
                         if($consulta0=mysqli_query($conn,$consulta_de_reserva)){
                                 while($persona=mysqli_fetch_assoc($consulta0)){
                                     if($usuario==$persona['usuario_res']&&$respuesta['horario']==$persona['horarios']){//revisar
-                                    $a=true;
+                                    $a=1;
                                     // $curso_reservado=$persona['id_res'];
                                     
                                 break;
                                 }
                             }
                         }
-                
-                        if($a){
+                        //////////////////////////////////////////////
+                        // $r=false;
+                        $sql6="SELECT * FROM transaccion WHERE id_curso=$id_curso AND id_usuario=$idusu";
+                        $guardar6 = mysqli_query($conn, $sql6);
+                        // var_dump();
+                        while($respuesta6 = mysqli_fetch_assoc($guardar6)){
+                            $trans_c=$respuesta6['id_curso'];
+                            $trans_u=$respuesta6['id_usuario'];
+                            // $r=true;
+                            $a=2;
+                            // var_dump($a);
+                            // die();
+                        }
+
+
+                        if($a==1){
                             echo "<b>Usted ya tiene reservada una plaza</b></br></br>";
                             // var_dump($respuesta['id_curso']);
                             ?>
@@ -67,16 +83,19 @@ if(isset($_SESSION['usuario'])){
                             <b style="color: red;">si pulsa CANCELAR RESERVA <br> se cancelara su reserva</b><br><br>
                             <?php
 
-                        }else
+                        }elseif($a==2)
                         {
-                ?>
-                    <a class="reservar" href="reserva_proceso.php? id_=<?php echo $respuesta['id_curso']?>">reservar </a>
-                    <?php
-                }
+                            echo "<center><b>USTED YA COMPRO ESTE CURSO</b></center>";
+                        }else{
+                            ?>
+                            <a class="reservar" href="reserva_proceso.php? id_=<?php echo $respuesta['id_curso']?>">reservar </a>
+                            <?php
+                        }
+
             }
             ?>
             <a href="../index_.php">volver</a>
-            
+            <section></center>
     </div>
 
     

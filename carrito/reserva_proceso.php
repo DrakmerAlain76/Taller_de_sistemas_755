@@ -43,8 +43,8 @@ require_once '../conexion.php';
                     // var_dump($persona);
                     if($usuario==$persona['usuario_res']&&$row['horario']==$persona['horarios']){//revisar
                         $a=true;
-                        echo "<h1>Usted ya tiene reservada una plaza</h1>";
-                        echo "<h1>si pulsa CANCELAR RESERVA, se cancelara su reserva</h1>";
+                        echo "<center><h1>Usted ya tiene reservada una plaza</h1></center>";
+                        echo "<center><h1>si pulsa CANCELAR RESERVA, se cancelara su reserva</h1></center>";
                     break;
                     }
             }
@@ -67,11 +67,11 @@ require_once '../conexion.php';
             }
             else{
                 $b=false;
-                echo "<h1>espere a la proxima</h1>";
+                echo "<center><h1>espere a la próxima</h1></center>";
             }
-            if($b){echo "<h1>FELICIDADES... usted reservo una plaza para su conferencia </h1>";}
+            if($b){echo "<center><h1>FELICIDADES... usted reservo una plaza para su conferencia </h1></center>";}
         }
     ?>
-    <a href="../index_.php">volver</a>
+    <center><a  href="../index_.php">volver</a></center>
     </body>
 </html>

@@ -1,7 +1,11 @@
 <?php 
 // require_once ('../conexion.php');
 ?>
-
+<style>
+    a{
+        text-decoration: none;
+    }
+</style>
 <nav id="navegacion">
             <ul class="ul_nav">
                 <li class="li_nav"><a class="lista" href="index_.php">inicio</a></li>

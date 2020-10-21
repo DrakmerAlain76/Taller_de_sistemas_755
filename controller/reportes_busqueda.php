@@ -51,8 +51,8 @@ else
                 'cedula'          =>$row[8],
                 'pais'            =>$row[9],
                 'numero_cell'     =>$row[10],
-                'genero'          =>$row[11],
-                'tipo_pago'       =>$row[12]
+                // 'genero'          =>$row[11],
+                'cash'       =>$row[12]
             );
         }
 
@@ -80,7 +80,7 @@ $titles=array(
             'cedula'        =>'cedula',
             'pais'          =>'pais',
             'numero_cell'   =>'numero_cell',
-            'tipo_pago'     =>'tipo_pago'
+            'cash'     =>'cash'
             );
 //     var_dump($data);
 // die();

@@ -71,7 +71,7 @@ if(isset($_POST)){
         if(count($errores) == 0){
             $guardar_usuario = true;
             //ACTUALIZAR
-            $sql1="UPDATE usuarios SET nombres='$nombre',apellidos='$apellidos',usuario='$usuario',email='$email',tipo=2,cedula='$cedula',pais='$pais',numero_cell='$numero_cell',genero='', tipo_pago=0, Fech_Nac=0 WHERE id_usuario=$id";
+            $sql1="UPDATE usuarios SET nombres='$nombre',apellidos='$apellidos',usuario='$usuario',email='$email',tipo=2,cedula='$cedula',pais='$pais',numero_cell='$numero_cell', Fech_Nac=0 WHERE id_usuario=$id";
             $guardar = mysqli_query($conn, $sql1);
             echo "se actualizo";
             echo "<a href=\"../adm/lista_usuarios.php\">Regresar</a><br>";

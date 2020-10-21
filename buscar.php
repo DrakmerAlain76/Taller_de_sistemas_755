@@ -64,7 +64,7 @@
 			<th>CEDULA</th>
 			<th>PAIS</th>
 			<th>TELEFONO</th>
-			<th>GENERO</th>
+			<!-- <th>GENERO</th> -->
 			<th>FECHA DE NACIEMIENTO</th>
 		</thead>
 		<tbody>

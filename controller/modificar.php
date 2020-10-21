@@ -50,15 +50,15 @@ $result=$conn->query($sql);
                 <td>Telefono</td>
                 <td><input type="text" name="numero_cell" value='<?php echo $row['numero_cell'];?>'></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>Género</td>
                 <td>
-                    <select name="genero" value='<?php echo $row['genero'];?>'>
+                    <select name="genero" value='<?php //echo $row['genero'];?>'>
                         <option>hombre</option>
                         <option>mujer</option>
                     </select>
                 </td>
-            </tr>
+            </tr> -->
             <tr>
                 <td>Tipo de Usuario</td>
                 <td>
