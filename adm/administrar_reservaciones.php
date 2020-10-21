@@ -1,8 +1,9 @@
 <?php
 require_once '../conexion.php';
 // require_once 'helper/control_adm.php';
-$sql="SELECT * FROM reservaciones";
+$sql="SELECT * FROM reserva";
 $listado=$conn->query($sql);
+// var_dump($listado);die;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -47,17 +48,18 @@ $listado=$conn->query($sql);
             <tbody>
                 <?php
                 if($listado->num_rows>0){
+                    // var_dump($listado);die;
                     while ($row=$listado->fetch_assoc()){
                         ?>
                 <tr>
-                    <td><?php echo $row['id_reserva'];?></td>
+                    <td><?php echo $row['id_res'];?></td>
                     <td><?php echo $row['usuario_res'];?></td>
-                    <td><?php echo $row['curso_reservado'];?></td>
+                    <td><?php echo $row['curso_res'];?></td>
                     <td><?php echo $row['fecha_res'];?></td>
                     <td><?php echo $row['hora_res'];?></td>
                     <!-- <td><?php //echo $row['codigo'];?></td> -->
-                    <td><a href="/modificar.php? id=<?php echo $row['id_reserva'];?>"><img src="../img/ico/editar.ico" alt=""></a></td>
-                    <td><a href="/eliminar.php? id=<?php echo $row['id_reserva'];?>"><img src="../img/ico/eliminar.ico" alt=""></a></td>
+                    <td><a href="/modificar.php? id=<?php echo $row['id_res'];?>"><img src="../img/ico/editar.ico" alt=""></a></td>
+                    <td><a href="/eliminar.php? id=<?php echo $row['id_res'];?>"><img src="../img/ico/eliminar.ico" alt=""></a></td>
                 </tr>
                 <?php
                     }
