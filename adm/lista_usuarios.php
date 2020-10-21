@@ -2,7 +2,7 @@
 require_once '../conexion.php';
 require_once '../helper/control_adm.php';
     //$sql="SELECT * FROM usuarios";
-    $sql="SELECT id_usuario,nombres,apellidos,usuario,email,tipo,cedula,pais,numero_cell,Fech_Nac FROM usuarios";
+    $sql="SELECT id_usuario,nombres,apellidos,usuario,email,tipo,cedula,pais,numero_cell FROM usuarios";
     $listado=$conn->query($sql);
     //alternativa
 ?>
@@ -56,7 +56,7 @@ require_once '../helper/control_adm.php';
                     <th>PAIS</th>
                     <th>TELEFONO</th>
                     <!-- <th>GENERO</th> -->
-                    <th>FECHA DE NACIEMIENTO</th>
+                    <!-- <th>FECHA DE NACIEMIENTO</th> -->
                     <th>ELIMINAR</th>
                     <th>MODIFICAR</th>
                 </tr>
@@ -77,7 +77,7 @@ require_once '../helper/control_adm.php';
                     <td><?php echo $row['pais'];?></td>
                     <td><?php echo $row['numero_cell'];?></td>
                     <!-- <td><?php //echo $row['genero'];?></td> -->
-                    <td><?php echo $row['Fech_Nac'];?></td>
+                    <td><?php //cho $row['Fech_Nac'];?></td>
                     <td><a href="../controller/modificar.php? id=<?php echo $row['id_usuario'];?>"><img src="../img/ico/editar.ico" alt=""></a></td>
                     <td><a href="../controller/eliminar.php? id=<?php echo $row['id_usuario'];?>"><img src="../img/ico/eliminar.ico" alt=""></a></td>
                 </tr>

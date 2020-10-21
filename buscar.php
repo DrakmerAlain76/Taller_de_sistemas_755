@@ -65,7 +65,8 @@
 			<th>PAIS</th>
 			<th>TELEFONO</th>
 			<!-- <th>GENERO</th> -->
-			<th>FECHA DE NACIEMIENTO</th>
+			<!-- <th>FECHA DE NACIEMIENTO</th> -->
+
 		</thead>
 		<tbody>
 	<?php
@@ -83,7 +84,7 @@
 				<td><?php echo $row[8]; ?></td>
 				<td><?php echo $row[9]; ?></td>
 				<td><?php echo $row[10]; ?></td>
-				<td><?php echo $row[11]; ?></td>
+				<!-- <td><?php //echo $row[11]; ?></td> -->
 			</tr>
 		<?php
 		}
@@ -107,7 +108,7 @@
 			}
 		?>
 		<br>
-		<input  class="boton" type="submit" name="imprimir" value="imprimir">
+		<!-- <input  class="boton" type="submit" name="imprimir" value="imprimir"> -->
 		<!-- <input type="submit" name="imprimir" value="imprimir" onclick="location.href='reportes_busqueda.php'"> -->
 	</form>
 	<br>

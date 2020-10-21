@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 21-10-2020 a las 09:56:37
+-- Tiempo de generación: 21-10-2020 a las 11:25:58
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.4.0
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `accesos` (
   `hora_a` time NOT NULL,
   `tipo` int(1) NOT NULL,
   PRIMARY KEY (`id_a`)
-) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `accesos`
@@ -113,7 +113,8 @@ INSERT INTO `accesos` (`id_a`, `nuser`, `fecha_a`, `hora_a`, `tipo`) VALUES
 (71, 'pedro123', '2020-09-29', '23:47:19', 2),
 (72, 'pedro123', '2020-10-04', '16:20:37', 2),
 (73, 'pedro123', '2020-10-04', '16:25:53', 2),
-(74, 'pedro123', '2020-10-20', '22:25:10', 2);
+(74, 'pedro123', '2020-10-20', '22:25:10', 2),
+(75, 'rodra', '2020-10-21', '06:54:34', 1);
 
 -- --------------------------------------------------------
 
@@ -206,37 +207,6 @@ INSERT INTO `reserva` (`id_res`, `usuario_res`, `curso_res`, `fecha_res`, `hora_
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `reservaciones`
---
-
-DROP TABLE IF EXISTS `reservaciones`;
-CREATE TABLE IF NOT EXISTS `reservaciones` (
-  `id_reserva` int(11) NOT NULL AUTO_INCREMENT,
-  `usuario_res` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
-  `curso_reservado` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
-  `fecha_res` date NOT NULL,
-  `hora_res` time NOT NULL,
-  PRIMARY KEY (`id_reserva`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `reservaciones`
---
-
-INSERT INTO `reservaciones` (`id_reserva`, `usuario_res`, `curso_reservado`, `fecha_res`, `hora_res`) VALUES
-(13, 'drakm', 'cumputacion', '2020-09-05', '03:48:31'),
-(14, 'drakm', 'Salchichas ', '2020-09-05', '03:48:40'),
-(15, 'drakm', 'CSS', '2020-09-05', '03:50:12'),
-(16, 'drakm', 'cumputacion desde 0', '2020-09-05', '03:50:54'),
-(17, 'drakm', 'HTML', '2020-09-08', '23:59:16'),
-(18, 'drakm', 'salteÃ±as', '2020-09-09', '02:08:10'),
-(19, 'drakm', 'Curso de C', '2020-09-09', '10:22:26'),
-(20, 'pedro123', 'CSS', '2020-10-04', '16:34:22'),
-(21, 'pedro123', '', '2020-10-04', '21:15:24');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `saldo`
 --
 
@@ -324,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `cash` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
   `Fech_Nac` int(11) NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`

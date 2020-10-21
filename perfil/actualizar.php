@@ -80,7 +80,7 @@ if(isset($_POST)){
         if(count($errores) == 0){
             $guardar_usuario = true;
             //ACTUALIZAR
-            $sql1="UPDATE usuarios SET nombres='$nombre',apellidos='$apellidos',usuario='$usuario',email='$email',cedula='$cedula',pais='$pais',numero_cell='$numero_cell',genero='',  Fech_Nac=0 WHERE id_usuario=$id_usuario";
+            $sql1="UPDATE usuarios SET nombres='$nombre',apellidos='$apellidos',usuario='$usuario',email='$email',cedula='$cedula',pais='$pais',numero_cell='$numero_cell',genero=''WHERE id_usuario=$id_usuario";
             // var_dump($id_usuario);
             // var_dump($sql1);
             // die();

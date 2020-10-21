@@ -28,7 +28,9 @@ $listado=$conn->query($sql);
 <body>
     <center>
     <table border="1">
-        <h1>LISTA DE RESERVAS</h1>
+        <h1>LISTA DE RESERVAS</h1><br>
+        <a class="boton"  href="../graficos/index0.php">Gráfico barra</a>
+        <a class="boton"  href="../graficos/index1.php">Gráfico torta</a><br>
         <br> 
             <thead>
                 <tr>
@@ -68,6 +70,7 @@ $listado=$conn->query($sql);
             </tbody>
         </table><br>
         <input class="boton" type="submit" name="Imprimir" value="Imprimir" onclick="location.href='../controller/reportes_reservaciones.php'">
+        
         <a class="boton"  href="../panel_de_control.php">volver</a><br>
     </center>
 
