@@ -82,7 +82,7 @@ if(isset($_SESSION['usuario'])){
                         }else{
                             ?>
                                 <br>
-                                <a class="comprar" href="confirmar_compra.php? id_c=<?php echo $respuesta['id_curso']?>">COMPRAR</a>
+                                <a class="comprar" href="confirmar_compra.php? id_c=<?php echo $respuesta['id_curso']?>">COMPRAR</a><br>
                             <?php
                         }
 

@@ -88,12 +88,13 @@ if(isset($_SESSION['usuario'])){
                             echo "<center><b>USTED YA COMPRO ESTE CURSO</b></center>";
                         }else{
                             ?>
-                            <a class="reservar" href="reserva_proceso.php? id_=<?php echo $respuesta['id_curso']?>">reservar </a>
+                            <a class="reservar" href="reserva_proceso.php? id_=<?php echo $respuesta['id_curso']?>">reservar </a><br>
                             <?php
                         }
 
             }
             ?>
+            <br>
             <a class="boton" href="../index_.php">volver</a>
             <section></center>
     </div>

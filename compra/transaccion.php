@@ -29,6 +29,13 @@ $sql1="SELECT * FROM reserva";
 // var_dump($lista,$d);
 $ban=false;//bandera de comprobacion de compra
 
+/* AUMENTO DE RESERVA (curso comprado debe añadir tabla)*/
+
+    $sql_cursos="SELECT * FROM cursos WHERE id_curso=$id_cu";
+    $result=mysqli_query($conn,$sql_cursos);
+    $row=$result->fetch_assoc();
+    $numero_reserva=(int)$row['reservas'];
+
 /* VERIFICACION DE CASH O SALDO */
 $sql4="SELECT * FROM usuarios WHERE id_usuario=$id_us";
 $guardar4 = mysqli_query($conn, $sql4);
@@ -99,6 +106,16 @@ while($respuesta2 = mysqli_fetch_assoc($guardar4)){
 
                 $sql2="INSERT INTO transaccion VALUES(null, CURDATE(), CURRENT_TIME(),'$dia_pedido',$descuento,'$nombre_curso',$costo_curso,$id_curso,$id_us);";
                 $sql3="UPDATE reserva SET comprado='si' WHERE id_res=$id_reserva";
+                
+                ////////
+                /*nueva consulta*/
+                $numero_reserva++;
+                $reserva1="UPDATE `cursos` SET `reservas`=$numero_reserva WHERE id_curso=$id_cu";//del curso  
+                $consulta2 = mysqli_query($conn, $reserva1);
+                // var_dump($consulta2);
+                // die();
+                ////////
+
                 $guardar1 = mysqli_query($conn, $sql2);
                 $guardar2 = mysqli_query($conn, $sql3);
                 $mensaje="Compra con exito";
@@ -108,7 +125,14 @@ while($respuesta2 = mysqli_fetch_assoc($guardar4)){
             else{
 
                 $sql2="INSERT INTO transaccion VALUES(null, CURDATE(), CURRENT_TIME(),'0000-00-00',0,'$nom_cur',$cos_cur,$id_cu,$id_us);";//transaccion
-                // var_dump($sql2);
+                
+                ////////
+                /*nueva consulta*/
+                $numero_reserva++;
+                $reserva1="UPDATE `cursos` SET `reservas`=$numero_reserva WHERE id_curso=$id_cu";//del curso  
+                $consulta2 = mysqli_query($conn, $reserva1);
+                
+                ////////
                 $guardar1 = mysqli_query($conn, $sql2);
                 // die();
 
@@ -158,10 +182,10 @@ if(!$ban){
         <!-- <h1>USTED COMPRO EL CURSO .. </h1> -->
         <!-- hacer los mensajes de confirmacion -->
         <?php
-        echo $mensaje;
+        echo "<br>"."<h1>".$mensaje."</h1>";
         
         ?>
-        <br><a class="boton" href="../index_.php">volver</a>
+        <br><br><a class="boton" href="../index_.php">volver</a>
     </center>
 </body>
 </html>
