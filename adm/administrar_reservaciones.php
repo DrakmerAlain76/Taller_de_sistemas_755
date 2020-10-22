@@ -41,8 +41,8 @@ $listado=$conn->query($sql);
                     <th>FECHA DE RESERVA</th>
                     <th>HORA DE RESERVA</th>
                     <!-- <th>CODIGO</th> -->
-                    <th>MODIFICAR</th>
-                    <th>ELIMINIAR</th>
+                    <!-- <th>MODIFICAR</th>
+                    <th>ELIMINIAR</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -58,8 +58,8 @@ $listado=$conn->query($sql);
                     <td><?php echo $row['fecha_res'];?></td>
                     <td><?php echo $row['hora_res'];?></td>
                     <!-- <td><?php //echo $row['codigo'];?></td> -->
-                    <td><a href="/modificar.php? id=<?php echo $row['id_res'];?>"><img src="../img/ico/editar.ico" alt=""></a></td>
-                    <td><a href="/eliminar.php? id=<?php echo $row['id_res'];?>"><img src="../img/ico/eliminar.ico" alt=""></a></td>
+                    <!-- <td><a href="/modificar.php? id=<?php// echo $row['id_res'];?>"><img src="../img/ico/editar.ico" alt=""></a></td> -->
+                    <!-- <td><a href="/eliminar.php? id=<?php //echo $row['id_res'];?>"><img src="../img/ico/eliminar.ico" alt=""></a></td> -->
                 </tr>
                 <?php
                     }

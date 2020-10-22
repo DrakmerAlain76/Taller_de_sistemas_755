@@ -1,14 +1,14 @@
 <?php
-	require_once'conexion.php';
+	require_once ('conexion.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="style/style.css">
+	<link rel="stylesheet" href="style/style.css">	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<style>
+	<!-- <style>
         *{
             font-family: Arial;
         }
@@ -19,7 +19,7 @@
         center{
             padding-top: 5%;
         }
-    </style>
+    </style> -->
 </head>
 <body>
 	
@@ -83,7 +83,7 @@
 				<td><?php echo $row[7]; ?></td>
 				<td><?php echo $row[8]; ?></td>
 				<td><?php echo $row[9]; ?></td>
-				<td><?php echo $row[10]; ?></td>
+				<!-- <td><?php //echo $row[10]; ?></td> -->
 				<!-- <td><?php //echo $row[11]; ?></td> -->
 			</tr>
 		<?php
@@ -97,7 +97,7 @@
 		</tbody>
 	</table>
 
-	<form method="POST" action="controller/reportes_busqueda.php">
+	<form method="GET" action="controller/reportes_busqueda1.php">
 		<?php
 			if(isset($_POST["btn"]))
 			{
