@@ -21,7 +21,8 @@ $pdf = new Cezpdf('Carta');
         'costo'         =>$row[4],
         'cupos'         =>$row[5],
         'fecha_curso'   =>$row[6],
-        'reservas'      =>$row[7]
+        'reservas'      =>$row[7],
+        'horario'      =>$row[8]
     );
 }
 }
@@ -36,7 +37,8 @@ $titles=array(
     'costo'=>'costo',
     'cupos'=>'cupos',
     'fecha_curso'=>'fecha_curso',
-    'reservas'=>'reservas'
+    'reservas'=>'reservas',
+    'horario'=>'horario',
 );
 $pdf->ezTable($data);
 ob_end_clean();

@@ -10,9 +10,10 @@ $listado=$conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/style1.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        *{
+        /* *{
             font-family: Arial;
         }
         body{
@@ -22,17 +23,21 @@ $listado=$conn->query($sql);
         }
         center{
             padding-top: 10%;
-        }
+        } */
     </style>
     <title>LISTA DE RESERVAS</title>
 </head>
 <body>
     <center>
-    <table border="1">
         <h1>LISTA DE RESERVAS</h1><br>
         <a class="boton"  href="../graficos/index0.php">Gráfico barra</a>
         <a class="boton"  href="../graficos/index1.php">Gráfico torta</a><br>
-        <br> 
+        <input class="boton" type="submit" name="Imprimir" value="Imprimir" onclick="location.href='../controller/reportes_reservaciones.php'">
+        
+        <a class="boton"  href="../panel_de_control.php">volver</a><br>
+    <div class="datagrid">
+    <table >
+        
             <thead>
                 <tr>
                     <th>ID RESERVAS</th>
@@ -40,28 +45,35 @@ $listado=$conn->query($sql);
                     <th>CURSO</th>
                     <th>FECHA DE RESERVA</th>
                     <th>HORA DE RESERVA</th>
-                    <!-- <th>CODIGO</th> -->
-                    <!-- <th>MODIFICAR</th>
-                    <th>ELIMINIAR</th> -->
                 </tr>
             </thead>
             <tbody>
                 <?php
                 if($listado->num_rows>0){
-                    // var_dump($listado);die;
+                    $ban=0;
                     while ($row=$listado->fetch_assoc()){
-                        ?>
-                <tr>
-                    <td><?php echo $row['id_res'];?></td>
-                    <td><?php echo $row['usuario_res'];?></td>
-                    <td><?php echo $row['curso_res'];?></td>
-                    <td><?php echo $row['fecha_res'];?></td>
-                    <td><?php echo $row['hora_res'];?></td>
-                    <!-- <td><?php //echo $row['codigo'];?></td> -->
-                    <!-- <td><a href="/modificar.php? id=<?php// echo $row['id_res'];?>"><img src="../img/ico/editar.ico" alt=""></a></td> -->
-                    <!-- <td><a href="/eliminar.php? id=<?php //echo $row['id_res'];?>"><img src="../img/ico/eliminar.ico" alt=""></a></td> -->
-                </tr>
+                        if ($ban%2==0) {
+                ?>
+                        <tr>
+                            <td><?php echo $row['id_res'];?></td>
+                            <td><?php echo $row['usuario_res'];?></td>
+                            <td><?php echo $row['curso_res'];?></td>
+                            <td><?php echo $row['fecha_res'];?></td>
+                            <td><?php echo $row['hora_res'];?></td>
+                        </tr>
                 <?php
+                        $ban++;
+                        }
+                        else{?>
+                            <tr class="alt">
+                                <td><?php echo $row['id_res'];?></td>
+                                <td><?php echo $row['usuario_res'];?></td>
+                                <td><?php echo $row['curso_res'];?></td>
+                                <td><?php echo $row['fecha_res'];?></td>
+                                <td><?php echo $row['hora_res'];?></td>
+                            </tr>
+                        <?php
+                        $ban++;}
                     }
                 }  
                 else{
@@ -70,10 +82,8 @@ $listado=$conn->query($sql);
                 $conn->close();
                 ?>
             </tbody>
-        </table><br>
-        <input class="boton" type="submit" name="Imprimir" value="Imprimir" onclick="location.href='../controller/reportes_reservaciones.php'">
-        
-        <a class="boton"  href="../panel_de_control.php">volver</a><br>
+        </table>
+        </div>    
     </center>
 
 </body>

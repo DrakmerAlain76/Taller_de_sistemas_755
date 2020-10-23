@@ -11,18 +11,13 @@ require_once '../helper/control_adm.php';
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/style1.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LISTA DE USUARIOS</title>
     <style>
-        *{
-            font-family: Arial;
-        }
-        body{
-            background-color: #333333;
-            color: #f5f5f5;
-        }
-        center{
-            padding-top: 5%;
+        .datagrid {
+            width: 90%; 
+
         }
     </style>
 </head>
@@ -42,8 +37,10 @@ require_once '../helper/control_adm.php';
             <input class="boton" type="reset" name="Limpiar" value="Limpiar">
         </form>
         <input class="boton" type="submit" name="Imprimir" value="Imprimir" onclick="location.href='../controller/reportes.php'">
-        <input class="boton" type="submit" name="Buscar" value="Buscar" onclick="location.href='../buscar.php'">
-        <table border="1">
+        <input class="boton" type="submit" name="Buscar" value="Buscar" onclick="location.href='../buscar.php'"><br><br>
+        <a class="boton" href="../panel_de_control.php">volver</a><br>
+        <br><div class="datagrid">
+        <table >
             <thead>
                 <tr>
                     <th>ID</th>
@@ -55,8 +52,6 @@ require_once '../helper/control_adm.php';
                     <th>CEDULA</th>
                     <th>PAIS</th>
                     <th>TELEFONO</th>
-                    <!-- <th>GENERO</th> -->
-                    <!-- <th>FECHA DE NACIEMIENTO</th> -->
                     <th>ELIMINAR</th>
                     <th>MODIFICAR</th>
                 </tr>
@@ -64,7 +59,9 @@ require_once '../helper/control_adm.php';
             <tbody>
                 <?php
                 if($listado->num_rows>0){
+                    $ban=0;
                     while ($row=$listado->fetch_assoc()){
+                        if ($ban%2==0) {
                         ?>
                 <tr>
                     <td><?php echo $row['id_usuario'];?></td>
@@ -76,12 +73,29 @@ require_once '../helper/control_adm.php';
                     <td><?php echo $row['cedula'];?></td>
                     <td><?php echo $row['pais'];?></td>
                     <td><?php echo $row['numero_cell'];?></td>
-                    <!-- <td><?php //echo $row['genero'];?></td> -->
-                    <td><?php //cho $row['Fech_Nac'];?></td>
                     <td><a href="../controller/modificar.php? id=<?php echo $row['id_usuario'];?>"><img src="../img/ico/editar.ico" alt=""></a></td>
                     <td><a href="../controller/eliminar.php? id=<?php echo $row['id_usuario'];?>"><img src="../img/ico/eliminar.ico" alt=""></a></td>
                 </tr>
                 <?php
+                        $ban++;
+                    }
+                    else{?>
+                            <tr class="alt">
+                                <td><?php echo $row['id_usuario'];?></td>
+                                <td><?php echo $row['nombres'];?></td>
+                                <td><?php echo $row['apellidos'];?></td>
+                                <td><?php echo $row['usuario'];?></td>
+                                <td><?php echo $row['email'];?></td>
+                                <td><?php echo $row['tipo'];?></td>
+                                <td><?php echo $row['cedula'];?></td>
+                                <td><?php echo $row['pais'];?></td>
+                                <td><?php echo $row['numero_cell'];?></td>
+                                <td><a href="../controller/modificar.php? id=<?php echo $row['id_usuario'];?>"><img src="../img/ico/editar.ico" alt=""></a></td>
+                                <td><a href="../controller/eliminar.php? id=<?php echo $row['id_usuario'];?>"><img src="../img/ico/eliminar.ico" alt=""></a></td>
+                            </tr>
+
+                        <?php
+                        $ban++;}
                     }
                 }  
                 else{
@@ -90,8 +104,8 @@ require_once '../helper/control_adm.php';
                 $conn->close();
                 ?>
             </tbody>
-        </table><br>
-        <a class="boton" href="../panel_de_control.php">volver</a>
+        </table></div><br>
+        
     </center>
 </body>
 </html>

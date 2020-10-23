@@ -14,17 +14,28 @@ if(isset($_SESSION['usuario'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../style/style.css">
+    <link rel="stylesheet" type="text/css" href="../style/style1.css">
     <title>Perfil</title>
+    <style>
+        .datagrid{
+            width: 25%;
+        }
+        .datagrid td tr{
+
+        }
+        input[type="text"],
+        input[type="email"],
+        button{
+            /* display:block; */
+            padding-top: 10px;
+        }
+        
+    </style>
 </head>
 <body>
     <?php require_once ('../view/menu_navegacion_us.php'); 
 
-
-
-
-// require_once("../conexion.php");
 $id=$_REQUEST['id'];
-// echo "ID".$id;
 $sql="SELECT * FROM usuarios where id_usuario='$id'";
 $result=$conn->query($sql);
 ?>
@@ -43,6 +54,8 @@ $result=$conn->query($sql);
     <br>
     <center>
     <form method="post" action="actualizar.php">
+        
+        <div class="datagrid">
         <table border="1">
             <tr>
                 <td>ID</td>
@@ -76,21 +89,12 @@ $result=$conn->query($sql);
                 <td>Telefono</td>
                 <td><input type="text" name="numero_cell" value='<?php echo $row['numero_cell'];?>'></td>
             </tr>
-            <!-- <tr>
-                <td>Género</td>
-                <td>
-                    <select name="genero" value='<?php// echo $row['genero'];?>'>
-                        <option>hombre</option>
-                        <option>mujer</option>
-                    </select>
-                </td>
-            </tr> -->
-           
             
         </table>
-        <input type="submit" value="Modificar">
+        </div>
+        <input class="boton" type="submit" value="Modificar">
     </form>
-    <a href="../perfil/perfil.php">volver</a>
+    <br><a class="boton" href="../perfil/perfil.php">volver</a>
     </center>
 <?php
 }

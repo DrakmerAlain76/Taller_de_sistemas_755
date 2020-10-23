@@ -18,7 +18,13 @@ $result=$conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../style/style.css">
+    <link rel="stylesheet" type="text/css" href="../style/style1.css">
     <title>Perfil</title>
+    <style>
+        .datagrid{
+            width: 35%;
+        }
+    </style>
 </head>
 <body>
     <?php require_once ('../view/menu_navegacion_us.php'); 
@@ -27,7 +33,7 @@ $result=$conn->query($sql);
     <br>
     <br>
     <center>
-    
+        <div class="datagrid">
         <table border="1">
             <tr>
                 <td>Id</td>
@@ -61,10 +67,6 @@ $result=$conn->query($sql);
                 <td>Telefono</td>
                 <td><?php echo $row['numero_cell'];?></td>
             </tr>
-            <!-- <tr>
-                <td>Género</td>
-                <td><?php //echo $row['genero'];?></td>
-            </tr> -->
             <tr>
                 <td>Saldo</td>
                 <td><?php echo $row['cash'];?></td>
@@ -73,8 +75,8 @@ $result=$conn->query($sql);
             
             
         </table>
+        </div>
         
-        <!-- <input type="submit" value="Modificar"> -->
         
         <br>
         

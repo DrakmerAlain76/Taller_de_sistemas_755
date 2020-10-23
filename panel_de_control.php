@@ -19,7 +19,7 @@
                 <li class="li_nav"><a class="lista" href="adm/administrar_reservaciones.php">lista reservaciones</a></li>
                 <li class="li_nav"><a class="lista" href="adm/lista_usuarios.php">lista usuarios</a></li>
                 <li class="li_nav"><a class="lista" href="adm/lista_accesos">lista de accesos</a></li>
-                <li class="li_nav"><a class="lista" href="cerrar_session.php">cerrar seccion</a></li>
+                <li class="li_nav"><a class="lista" href="cerrar_session.php">cerrar sesión</a></li>
             </ul>
             
             

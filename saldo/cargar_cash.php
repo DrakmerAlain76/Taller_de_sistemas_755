@@ -29,7 +29,7 @@ if(isset($_SESSION['usuario'])){
                 <input class="boton" type="submit" name="enviar" value="enviar">
                 
             </form>
-            <a href="../perfil/perfil.php">volver</a>
+            <br><a class="boton" href="../perfil/perfil.php">volver</a>
         </center>        
     </div>
 

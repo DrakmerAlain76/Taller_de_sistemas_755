@@ -26,6 +26,8 @@ if(isset($_POST)){
         $cupos = isset($_POST['cupos']) ? mysqli_real_escape_string($conn, $_POST['cupos']) : false;
 
         $fecha_curso = isset($_POST['fecha_curso']) ? mysqli_real_escape_string($conn, $_POST['fecha_curso']) : false;
+
+        $horario = isset($_POST['horario']) ? mysqli_real_escape_string($conn, $_POST['horario']) : false;
         // var_dump($fecha_curso);
 
     // die();
@@ -73,10 +75,16 @@ if(isset($_POST)){
             $errores['fecha_curso'] = "El campo fecha curso está vacía";
         }
         
+        if(!empty($horario)){
+            $horario_validado = true;
+        }else{
+            $horario_validado = false;
+            $errores['horario'] = "El horario está vacío";
+        }
+
         $guardar_curso = false;
 
-        // var_dump($errores);
-        //     die();
+        
         if(count($errores) == 0){
             $guardar_curso = true;
             // INSERTAR USUARIO EN LA TABLA USUARIOS DE LA BBDD
@@ -85,10 +93,10 @@ if(isset($_POST)){
             //     null, '$nombre_curso', '$expositor', '$comentario', $costo, $cupos, $fecha_curso, 0);";
             //REVISAR EL ERROR DE LA FECHA O COMO SE INSERTA LAS FECHAS
             $sql = "INSERT INTO cursos VALUES(
-                null, '$nombre_curso', '$expositor', '$comentario', $costo, $cupos, '$fecha_curso', 0);";
-            // var_dump($costo,$cupos);
-            // die();
+                null, '$nombre_curso', '$expositor', '$comentario', $costo, $cupos, '$fecha_curso', 0, $horario);";
             $guardar = mysqli_query($conn, $sql);
+            // var_dump($guardar);
+            // die();
             if($guardar){
                 $_SESSION['completado'] = "El registro se ha completado con éxito";
             }else{
@@ -109,7 +117,7 @@ if(isset($_POST)){
 
     
         <center>
-    <h1><strong>SE AGREGO UN NUEVO CUERSO CORREACTAMENTE</strong></h1><br>
+    <h1><strong>SE AGREGO UN NUEVO CUERSO CORRECTAMENTE</strong></h1><br>
     <?php
     /// HACER EL CONTROL DE VOLVER AL MENU DE INICIO
     // require_once 'helper/control_par.php';

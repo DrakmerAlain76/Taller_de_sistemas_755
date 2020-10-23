@@ -100,6 +100,15 @@ if(isset($_POST)){
     }
     if(!$errores){
 ?>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <link rel="stylesheet" type="text/css" href="style/style.css">
+    </head>
+    <body>
+        
+    <center><br>
+    <br>
     <h1><strong>SE REGISTRO CORREACTAMENTE</strong></h1>
     <?php
     /// HACER EL CONTROL DE VOLVER AL MENU DE INICIO
@@ -109,9 +118,12 @@ if(isset($_POST)){
         header('Location: adm/lista_usuarios.php');
     }
     ?>
-    <a href="registrar.php">iniciar seccion</a><br>
-    <a href="index_.php">inicio</a>
+    <br><a class="boton" href="registrar.php">iniciar sesión</a><br><br>
+    <a class="boton" href="index_.php">inicio</a>
+    </center>
 <?php
     }
 }
 ?>
+</body>
+</html>

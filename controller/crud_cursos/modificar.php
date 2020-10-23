@@ -1,22 +1,44 @@
 <?php
 require_once("../../conexion.php");
 $id=$_REQUEST['id'];
-echo "ID".$id;
+// echo "ID".$id;
 $sql="SELECT * FROM cursos where id_curso='$id'";
 $result=$conn->query($sql);
 //alternativa
 ?>
 <!DOCTYPE html>
-<html><head>
-    <title>
+<html>
+    <head>
+    <title>modificar</title>
+    <link rel="stylesheet" type="text/css" href="../../style/style.css">
+    <link rel="stylesheet" type="text/css" href="../../style/style1.css">
+    <style>
+        .datagrid{
+            width: 25%;
+        }
+        .datagrid td tr{
 
-</title>
+        }
+        input[type="text"],
+        input[type="email"],
+        button{
+            /* display:block; */
+            padding-top: 10px;
+        }
+        h1{
+            color: #A65B1A;
+        }
+    </style>
 </head>
 <body>
     <?php
     while($row=mysqli_fetch_assoc($result)){
     ?>
     <form method="post" action="actualizar.php">
+        <center>
+        <br>
+        <h1>MODIFICAR CURSO</h1>
+        <div class="datagrid">
         <table border="1">
             <tr>
                 <td>Id</td>
@@ -50,7 +72,10 @@ $result=$conn->query($sql);
                 <td><input type="date" name="fecha_curso" value='<?php echo $row['fecha_curso'];?>'></td>
             </tr>
         </table>
-        <input type="submit" value="Modificar">
+        </div>
+        <input class="boton" type="submit" value="Modificar">
+        <br><a class="boton" href="../../adm/administrar_coferencias.php">volver</a>
+        </center>
     </form>
 <?php
 }

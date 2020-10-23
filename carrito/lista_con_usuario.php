@@ -18,20 +18,23 @@ $sql1="SELECT * FROM transaccion";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../style/style.css">
-    <!-- <link rel="stylesheet" href=""> -->
+    <link rel="stylesheet" type="text/css" href="../style/style1.css">
     <title>LISTA DE CURSOS RESERVADOS</title>
+    <style>
+        h1{
+            color: #A65B1A;
+        }
+    </style>
 </head>
 <body>
-    <!-- logo -->
-    <!-- ESTE MENU ES PROVICIONAL -->
     <?php require_once ('../view/menu_navegacion_us.php'); ?>
     <center>
+        <br>
+        <br>
+        <h1>CURSOS COMPRADOS</h1>
 
-    
+    <div class="datagrid">
     <table border="1">
-        <br>
-        <br>
-        <h1>RESERVAS DE CURSOS</h1>
             <thead>
                 <tr>
                     <th>CURSOS</th>
@@ -68,15 +71,17 @@ $sql1="SELECT * FROM transaccion";
                 ?>
             </tbody>
         </table>
+        </div>
         </center>
 
         <center>
 
     
-    <table border="1">
-    <br>
         <br>
-        <h1>COMPRAS DE CURSOS</h1>
+        <br>
+        <h1>CURSOS COMPRADOS</h1>
+        <div class="datagrid">
+        <table border="1">
             <thead>
                 <tr>
                     <th>NOMBRE</th>
@@ -113,6 +118,7 @@ $sql1="SELECT * FROM transaccion";
                 ?>
             </tbody>
         </table>
+            </div>
         </center>
 </body>
 </html>
