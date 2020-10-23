@@ -39,13 +39,13 @@ $id=$_REQUEST['id'];
 $sql="SELECT * FROM usuarios where id_usuario='$id'";
 $result=$conn->query($sql);
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html><head>
     <title>
 
 </title>
 </head>
-<body>
+<body> -->
     <?php
     while($row=mysqli_fetch_assoc($result)){
     ?>

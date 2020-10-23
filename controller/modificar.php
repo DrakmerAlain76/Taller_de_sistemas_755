@@ -71,7 +71,8 @@ $result=$conn->query($sql);
             
             
         </table>
-        <input type="submit" value="Modificar">
+        <input type="submit" value="Modificar"><br><br>
+        <br><a class="boton" href="../adm/lista_usuarios.php">volver</a>
     </form>
 <?php
 }

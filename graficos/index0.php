@@ -65,7 +65,7 @@ h1{
                                 borderColor: '#46d5f1',
                                 hoverBackgroundColor: '#CCCCCC',
                                 hoverBorderColor: '#666666',
-                                data: reservas
+                                data: reservas ///marks /reservas
                             }
                         ]
                     };

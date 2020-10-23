@@ -61,7 +61,7 @@ h1{
                         datasets: [
                             {
                                 label: 'Cursos Reservados',//Student Marks /TITULO
-                                data: reservas,
+                                data: reservas,///marks /reservas
                                 hoverBorderWidth: 5,
                                 backgroundColor: [
                                                     "#FF6384",

@@ -68,12 +68,17 @@ $result=$conn->query($sql);
                 <td><input type="text" name="cupos" value='<?php echo $row['cupos'];?>'></td>
             </tr>
             <tr>
+                <td>horario</td>
+                <td><input type="text" name="horario" value='<?php echo $row['horario'];?>'></td>
+            </tr>
+            <tr>
                 <td>fecha curso</td>
                 <td><input type="date" name="fecha_curso" value='<?php echo $row['fecha_curso'];?>'></td>
             </tr>
+            
         </table>
         </div>
-        <input class="boton" type="submit" value="Modificar">
+        <input class="boton" type="submit" value="Modificar"><br>
         <br><a class="boton" href="../../adm/administrar_coferencias.php">volver</a>
         </center>
     </form>

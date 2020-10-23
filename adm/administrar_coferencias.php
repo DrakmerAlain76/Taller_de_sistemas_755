@@ -47,7 +47,7 @@ require_once '../conexion.php';
         </form>
         <input class="boton" type="submit" name="Imprimir" value="Imprimir" onclick="location.href='../controller/reportes_cursos.php'">
         <!-- <input type="submit" name="Buscar" value="Buscar" onclick="location.href='buscar.php'"> --><!--implementar lo que es buscar-->
-
+        <a class="boton" href="../panel_de_control.php">volver</a><br>
 <div class="datagrid">
 <table >
 <thead>
