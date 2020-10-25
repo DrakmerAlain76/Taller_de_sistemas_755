@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 21-10-2020 a las 11:25:58
+-- Tiempo de generación: 25-10-2020 a las 02:32:55
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.4.0
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `accesos` (
   `hora_a` time NOT NULL,
   `tipo` int(1) NOT NULL,
   PRIMARY KEY (`id_a`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `accesos`
@@ -114,7 +114,14 @@ INSERT INTO `accesos` (`id_a`, `nuser`, `fecha_a`, `hora_a`, `tipo`) VALUES
 (72, 'pedro123', '2020-10-04', '16:20:37', 2),
 (73, 'pedro123', '2020-10-04', '16:25:53', 2),
 (74, 'pedro123', '2020-10-20', '22:25:10', 2),
-(75, 'rodra', '2020-10-21', '06:54:34', 1);
+(75, 'rodra', '2020-10-21', '06:54:34', 1),
+(76, 'pedro123', '2020-10-21', '07:29:43', 2),
+(77, 'pedro123', '2020-10-21', '07:43:37', 2),
+(78, 'Alain76', '2020-10-21', '10:02:36', 2),
+(79, 'Alain76', '2020-10-21', '10:45:46', 2),
+(80, 'rodra', '2020-10-21', '10:50:23', 1),
+(81, 'ped', '2020-10-22', '23:47:57', 2),
+(82, 'drakm', '2020-10-23', '00:47:08', 2);
 
 -- --------------------------------------------------------
 
@@ -134,21 +141,20 @@ CREATE TABLE IF NOT EXISTS `cursos` (
   `reservas` int(11) NOT NULL,
   `horario` int(11) NOT NULL,
   PRIMARY KEY (`id_curso`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `cursos`
 --
 
 INSERT INTO `cursos` (`id_curso`, `nombre_curso`, `expositor`, `comentario`, `costo`, `cupos`, `fecha_curso`, `reservas`, `horario`) VALUES
-(1, 'HTML', 'fernando hernandez', 'Este es curso de introduccion de de HTML y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 151, '2020-08-24', 10, 10),
-(2, 'CSS', 'victor robles', 'Este es curso de introduccion de de CSS y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 150, '2020-08-25', 11, 20),
+(1, 'HTML', 'fernando hernandez', 'Este es curso de introduccion de de HTML y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 151, '2020-08-24', 13, 10),
+(2, 'CSS', 'victor robles', 'Este es curso de introduccion de de CSS y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 150, '2020-08-25', 12, 20),
 (3, 'JAVASCRIPT', 'FAZT', 'Este es curso de introduccion de de JAVASCRIPT y las teclonogias de la web asi mismo se vera mas de la actulidad y la tendencias de estas nuevas tecnologias', 100, 150, '2020-08-26', 8, 11),
 (10, 'Salchichas ', 'master chef Carlos', 'descripcion y ss ', 154, 86, '0000-00-00', 2, 9),
 (11, 'cumputacion', 'jose arias', 'descripcion mucho', 150, 784, '0000-00-00', 1, 12),
 (13, 'salteÃ±as', 'Alberto', 'descripcion de salteÃ±as', 150, 200, '2020-09-12', 1, 10),
-(14, 'Curso de C', 'Pedro Fernandez', 'descripcion del curso en C ', 200, 150, '2020-09-24', 1, 15),
-(21, 'nuevo curso', 'tito', 'descripcion ', 152, 500, '2020-09-16', 1, 8);
+(14, 'Curso de C', 'Pedro Fernandez', 'descripcion del curso en C ', 200, 150, '2020-09-24', 2, 15);
 
 -- --------------------------------------------------------
 
@@ -192,17 +198,18 @@ CREATE TABLE IF NOT EXISTS `reserva` (
   `id_curso` int(11) NOT NULL,
   `comprado` varchar(2) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_res`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `reserva`
 --
 
 INSERT INTO `reserva` (`id_res`, `usuario_res`, `curso_res`, `fecha_res`, `hora_res`, `cupos`, `horarios`, `descuento`, `id_curso`, `comprado`) VALUES
-(16, 'pedro123', 'CSS', '2020-10-20', '22:32:34', 1, 20, 0, 0, ''),
+(16, 'pedro123', 'CSS', '2020-10-20', '22:32:34', 1, 20, 0, 2, 'si'),
 (17, 'pedro123', 'nuevo curso', '2020-10-20', '23:38:24', 1, 8, 0, 21, 'si'),
-(19, 'pedro123', 'salteÃ±as', '2020-10-21', '04:53:02', 1, 10, 0, 13, 'no'),
-(22, 'pedro123', 'Salchichas ', '2020-10-21', '05:55:34', 1, 9, 0, 10, 'si');
+(22, 'pedro123', 'Salchichas ', '2020-10-21', '05:55:34', 1, 9, 0, 10, 'si'),
+(24, 'pedro123', 'Curso de C', '2020-10-21', '07:36:54', 1, 15, 0, 14, 'no'),
+(27, 'Alain76', 'CSS', '2020-10-21', '10:46:15', 1, 20, 0, 2, 'no');
 
 -- --------------------------------------------------------
 
@@ -225,9 +232,9 @@ CREATE TABLE IF NOT EXISTS `saldo` (
 
 INSERT INTO `saldo` (`id_saldo`, `cash`, `valor`, `disponible`) VALUES
 (1, 'XXXAAAEEE', 1000, 'no'),
-(2, 'AAASSSDDD', 2000, 'no'),
-(3, 'RRRGGGBBB', 500, 'no'),
-(4, 'UUUBBBLLL', 200, 'no');
+(2, 'AAASSSDDD', 2000, 'si'),
+(3, 'RRRGGGBBB', 500, 'si'),
+(4, 'UUUBBBLLL', 200, 'si');
 
 -- --------------------------------------------------------
 
@@ -247,30 +254,19 @@ CREATE TABLE IF NOT EXISTS `transaccion` (
   `id_curso` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
   PRIMARY KEY (`id_transaccion`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `transaccion`
 --
 
 INSERT INTO `transaccion` (`id_transaccion`, `dia_compra`, `hora_compra`, `dia_pedido`, `descuento`, `nombre_curso`, `costo`, `id_curso`, `id_usuario`) VALUES
-(1, '2020-10-21', '01:42:02', '2020-10-20', '0', 'nuevo curso', 152, 21, 0),
-(2, '2020-10-21', '01:42:49', '2020-10-20', '0', 'nuevo curso', 152, 21, 0),
-(3, '2020-10-21', '01:43:00', '2020-10-20', '0', 'nuevo curso', 152, 21, 0),
-(4, '2020-10-21', '03:20:53', '0000-00-00', '0', 'Curso de C', 200, 14, 0),
-(5, '2020-10-21', '03:21:13', '0000-00-00', '0', 'Curso de C', 200, 14, 0),
-(6, '2020-10-21', '03:21:24', '0000-00-00', '0', 'Curso de C', 200, 14, 0),
-(7, '2020-10-21', '03:21:38', '0000-00-00', '0', 'Salchichas ', 154, 10, 0),
-(8, '2020-10-21', '03:26:48', '0000-00-00', '0', 'CSS', 100, 2, 0),
-(9, '2020-10-21', '03:36:47', '0000-00-00', '0', 'CSS', 100, 2, 0),
-(10, '2020-10-21', '03:37:16', '0000-00-00', '0', 'CSS', 100, 2, 0),
-(11, '2020-10-21', '03:37:27', '0000-00-00', '0', 'CSS', 100, 2, 0),
-(12, '2020-10-21', '03:42:26', '0000-00-00', '0', 'CSS', 100, 2, 29),
-(13, '2020-10-21', '03:53:19', '0000-00-00', '0', 'CSS', 100, 2, 29),
-(14, '2020-10-21', '03:55:42', '0000-00-00', '0', 'CSS', 100, 2, 29),
+(2, '2020-10-21', '01:42:49', '2020-10-20', '0', 'nuevo curso', 152, 21, 29),
+(6, '2020-10-21', '03:21:24', '0000-00-00', '0', 'Curso de C', 200, 14, 29),
+(7, '2020-10-21', '03:21:38', '0000-00-00', '0', 'Salchichas ', 154, 10, 29),
 (15, '2020-10-21', '03:55:55', '0000-00-00', '0', 'CSS', 100, 2, 29),
 (16, '2020-10-21', '05:08:13', '0000-00-00', '0', 'JAVASCRIPT', 100, 3, 29),
-(17, '2020-10-21', '05:56:01', '2020-10-21', '0', 'Salchichas ', 154, 10, 29);
+(20, '2020-10-21', '10:49:19', '0000-00-00', '0', 'HTML', 100, 1, 31);
 
 -- --------------------------------------------------------
 
@@ -294,21 +290,22 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `cash` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
   `Fech_Nac` int(11) NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombres`, `apellidos`, `usuario`, `contrasena`, `email`, `tipo`, `cedula`, `pais`, `numero_cell`, `genero`, `cash`, `Fech_Nac`) VALUES
-(14, 'drak', 'ro', 'rodra', '$2y$04$ASJcj2DQ5Pz/RZApPQZQ1O77N4lp0cOIZbkRjB6Jz44oNKpBOOZge', 'rodra@gmail.com', 1, '0', '0', '0', '0', '0', 0),
-(15, 'marcelo jose', 'arias', 'marcelo_arias', '$2y$04$Bu7V3l8zJIbAA1WlGXFH6OgyYLe6mHYZokTWG6WvaKDjnkMVF.cqa', 'marcelo@arias.com', 2, '0', '0', '0', '0', '0', 0),
-(16, 'drakmer', 'rodriguez', 'drakm', '$2y$04$ra10/aVt0fh0ZAgGIHyFlOxdJgyKrMIxryS.4J50ircNyT/5GtFPC', 'drak@ro.com', 2, '0', '0', '0', '0', '0', 0),
-(18, 'jose', 'io', 'jose12', '$2y$04$HMYvYhKKeJdIEoMxDflESegxbzpueLkeYC.QDriiDWIJzb5CLD6yu', 'jose@perez.com', 2, '15789495', 'bolivia', '1234568', '', '0', 0),
+(14, 'drak', 'ro', 'rodra', '$2y$04$ASJcj2DQ5Pz/RZApPQZQ1O77N4lp0cOIZbkRjB6Jz44oNKpBOOZge', 'rodra@gmail.com', 1, '0', '0', '0', '', '0', 0),
+(15, 'marcelo jose', 'arias', 'marcelo_arias', '$2y$04$Bu7V3l8zJIbAA1WlGXFH6OgyYLe6mHYZokTWG6WvaKDjnkMVF.cqa', 'marcelo@arias.com', 2, '1652325', 'Bolivia', '7855165', '', '0', 0),
+(16, 'drakmer', 'rodriguez', 'drakm', '$2y$04$ra10/aVt0fh0ZAgGIHyFlOxdJgyKrMIxryS.4J50ircNyT/5GtFPC', 'drak@ro.com', 2, '16513256', 'Bolivia', '75156685', '', '0', 0),
+(18, 'jose', 'io', 'jose12', '$2y$04$HMYvYhKKeJdIEoMxDflESegxbzpueLkeYC.QDriiDWIJzb5CLD6yu', 'jose@perez.com', 2, '15789495', 'bolivia', '7234568', '', '0', 0),
 (19, 'paola', 'rios', 'paloa12', '$2y$04$8SI5a0y82pMyDgYSlGLx9OEOT.S9qeDnz23e1jqpbEjIamP1zcyia', 'pa@rios.com', 2, '1548226', 'bolivia', '7856126', '', '0', 0),
-(20, 'flor', 'liz', 'flor123', '$2y$04$WWzdAyKGgIW7QnekctmE4udAoTNpSN4ged1pERXiHOIunP6loPgBW', 'flor@gmail.com', 2, '12585212', 'bolivia', '78512663', '', '0', 0),
-(22, 'lis', 'isa', 'usa', '$2y$04$9vyjGgt3NkpzUGUB8Fbrbuotz5PwrXqDD/yfUfVtPu6NIUscsXk6y', 'lis@isa.com', 2, '12345679', 'bolivia', '1234567890', '', '0', 0),
-(29, 'pedro', 'martinez', 'pedro123', '$2y$04$izm4qgasASJfGK26aZtka.ykctfsDvNujI6jDjbcBLFQMzy3.3wMu', 'pe@ma.com', 2, '1568653', 'Peru', '2348948', '', '46', 0);
+(22, 'lis', 'isa', 'usa', '$2y$04$9vyjGgt3NkpzUGUB8Fbrbuotz5PwrXqDD/yfUfVtPu6NIUscsXk6y', 'lis@isa.com', 2, '12345679', 'bolivia', '7853215', '', '0', 0),
+(29, 'pedro', 'martinez', 'pedro123', '$2y$04$izm4qgasASJfGK26aZtka.ykctfsDvNujI6jDjbcBLFQMzy3.3wMu', 'pe@ma.com', 2, '1568653', 'Peru', '2348948', '', '600', 0),
+(31, 'Alain', 'rodriguez', 'Alain76', '$2y$04$x6rUoNTABEEhcVaFv1x7GOwZT5Z09Fsjwm6QVvMgqWowk/asSdUkW', 'Alain@rodriguez.com', 2, '10468166', 'Argentina ', '78637763', '', '900', 0),
+(38, 'pepeg', 'albarez', 'ped', '$2y$04$zwTJjL7jM3ctWYdvDT3yEea4cF..kM2JWOlSWsRCeOLpyLTusJXV2', 'pep4e@gmail.com', 2, '78951561', 'Chile', '498495265', '', '0', 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
